@@ -1,4 +1,7 @@
+'use client';
+import { useState, useEffect, useRef } from 'react';
 import { Box } from '@mui/material';
+import CryptoModal from '../CryptoModal/CryptoModal';
 
 const coins = [
     {
@@ -10,7 +13,8 @@ const coins = [
             </svg>
         ),
         size: 50,
-        animation: '15s',
+        animation: '20s',
+        initialRotation: 0,
         orbit: { x: 300, y: 150, delay: '0s' }
     },
     {
@@ -26,6 +30,7 @@ const coins = [
         ),
         size: 45,
         animation: '20s',
+        initialRotation: 72,
         orbit: { x: 400, y: 200, delay: '-5s' }
     },
     {
@@ -40,7 +45,8 @@ const coins = [
             </svg>
         ),
         size: 48,
-        animation: '25s',
+        animation: '20s',
+        initialRotation: 144,
         orbit: { x: 350, y: 180, delay: '-10s' }
     },
     {
@@ -55,7 +61,8 @@ const coins = [
             </svg>
         ),
         size: 42,
-        animation: '18s',
+        animation: '20s',
+        initialRotation: 216,
         orbit: { x: 280, y: 140, delay: '-3s' }
     },
     {
@@ -67,22 +74,102 @@ const coins = [
             </svg>
         ),
         size: 46,
-        animation: '22s',
+        animation: '20s',
+        initialRotation: 288,
         orbit: { x: 320, y: 160, delay: '-7s' }
     }
 ];
 
+const cryptoInfo = {
+    1: {
+        name: "Bitcoin (BTC)",
+        description: "La primera criptomoneda descentralizada del mundo. Bitcoin utiliza la tecnología blockchain para facilitar pagos peer-to-peer sin necesidad de intermediarios.",
+        year: "2009",
+        creator: "Satoshi Nakamoto"
+    },
+    2: {
+        name: "Ethereum (ETH)",
+        description: "Una plataforma blockchain que permite la creación de contratos inteligentes y aplicaciones descentralizadas (dApps).",
+        year: "2015",
+        creator: "Vitalik Buterin"
+    },
+    3: {
+        name: "Binance Coin (BNB)",
+        description: "La criptomoneda nativa del ecosistema Binance, utilizada para trading, pago de fees y participación en token sales en la Binance Launchpad.",
+        year: "2017",
+        creator: "Changpeng Zhao (CZ)"
+    },
+    4: {
+        name: "Cardano (ADA)",
+        description: "Una blockchain de prueba de participación desarrollada con metodología académica y enfoque en sostenibilidad y escalabilidad.",
+        year: "2017",
+        creator: "Charles Hoskinson"
+    },
+    5: {
+        name: "Solana (SOL)",
+        description: "Blockchain de alta velocidad y bajo costo diseñada para escalar, capaz de procesar hasta 65,000 transacciones por segundo.",
+        year: "2020",
+        creator: "Anatoly Yakovenko"
+    }
+} as const;
+
 const FloatingCoins = () => {
+    const [selectedCoin, setSelectedCoin] = useState<number | null>(null);
+    const [modalInfo, setModalInfo] = useState<typeof cryptoInfo[keyof typeof cryptoInfo] | null>(null);
+    const modalTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    const handleCoinHover = (coinId: number) => {
+        if (modalTimeoutRef.current) {
+            clearTimeout(modalTimeoutRef.current);
+        }
+        setSelectedCoin(coinId);
+        setModalInfo(cryptoInfo[coinId as keyof typeof cryptoInfo]);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+        if (!modalInfo) return;
+
+        // Obtener dimensiones y posición del contenedor
+        const container = document.querySelector('.coin-container');
+        if (!container) return;
+
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX;
+        const y = e.clientY;
+
+        // Verificar si el mouse está fuera del área de las monedas
+        const isOutside = x < rect.left - 100 || 
+                         x > rect.right + 100 || 
+                         y < rect.top - 100 || 
+                         y > rect.bottom + 100;
+
+        if (isOutside) {
+            modalTimeoutRef.current = setTimeout(() => {
+                setSelectedCoin(null);
+                setModalInfo(null);
+            }, 100);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            clearTimeout(modalTimeoutRef.current);
+        };
+    }, [modalInfo]);
+
     return (
         <Box
+            className="coin-container"
             sx={{
                 position: 'absolute',
-                width: '100%',
+                width: '150%',
                 height: '100%',
                 top: 0,
-                left: 0,
+                left: '-25%',
                 overflow: 'visible',
-                perspective: '1500px',
+                perspective: '2000px',
                 transformStyle: 'preserve-3d',
                 zIndex: 10,
             }}
@@ -96,32 +183,32 @@ const FloatingCoins = () => {
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
                         transformStyle: 'preserve-3d',
-                        animation: `orbit-${coin.id} ${coin.animation} infinite linear`,
-                        animationDelay: `-${index * 3}s`,
+                        animation: selectedCoin === coin.id ? 'none' : `orbit-${coin.id} ${coin.animation} infinite linear`,
+                        animationDelay: '0s',
                         [`@keyframes orbit-${coin.id}`]: {
                             '0%': {
-                                transform: `translate(-50%, -50%) rotateY(0deg) translateX(400px) rotateY(0deg)`,
+                                transform: `translate(-50%, -50%) rotateY(${coin.initialRotation}deg) translateX(400px)`,
                             },
                             '100%': {
-                                transform: `translate(-50%, -50%) rotateY(360deg) translateX(400px) rotateY(-360deg)`,
+                                transform: `translate(-50%, -50%) rotateY(${coin.initialRotation + 360}deg) translateX(400px)`,
                             }
                         },
+                        cursor: 'pointer',
+                    }}
+                    onMouseEnter={() => handleCoinHover(coin.id)}
+                    onMouseLeave={() => {
+                        // No hacer nada al salir del mouse
                     }}
                 >
                     <Box
                         sx={{
                             transformStyle: 'preserve-3d',
+                            transform: 'rotateY(-90deg)',
                             transition: 'transform 0.3s ease',
-                            animation: `coin-visibility ${coin.animation} infinite linear`,
-                            '@keyframes coin-visibility': {
-                                '0%, 100%': { opacity: 1 },
-                                '45%, 55%': { opacity: 0.3 }, // Solo se desvanece un poco al pasar por detrás
-                                '50%': { opacity: 0.2 },
-                            },
-                            filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.2))',
+                            opacity: selectedCoin === coin.id ? 1 : 0.8,
                             '&:hover': {
-                                transform: 'scale(1.2)',
-                                filter: 'drop-shadow(0 0 15px rgba(0,0,0,0.3))',
+                                transform: 'rotateY(-90deg) scale(1.2)',
+                                opacity: 1,
                             },
                         }}
                     >
@@ -129,6 +216,17 @@ const FloatingCoins = () => {
                     </Box>
                 </Box>
             ))}
+            
+            {modalInfo && (
+                <CryptoModal
+                    open={!!modalInfo}
+                    onClose={() => {
+                        setSelectedCoin(null);
+                        setModalInfo(null);
+                    }}
+                    cryptoInfo={modalInfo}
+                />
+            )}
         </Box>
     );
 };
