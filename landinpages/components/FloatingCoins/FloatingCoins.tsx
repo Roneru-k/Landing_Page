@@ -3,7 +3,11 @@ import { useState, useEffect, useRef } from 'react';
 import { Box } from '@mui/material';
 import CryptoModal from '../CryptoModal/CryptoModal';
 
-const coins = [
+const ORBIT_RADIUS = 400;
+const TOTAL_COINS = 5;
+const BASE_ANIMATION_DURATION = '20s';
+
+const baseCoins = [
     {
         id: 1,
         icon: (
@@ -12,10 +16,6 @@ const coins = [
                 <path d="M23.189 14.02c.314-2.096-1.283-3.223-3.465-3.975l.708-2.84-1.728-.43-.69 2.765c-.454-.114-.92-.22-1.385-.326l.695-2.783L15.596 6l-.708 2.839c-.376-.086-.745-.17-1.1-.26l.002-.009-2.384-.595-.46 1.846s1.283.294 1.256.312c.7.175.826.638.805 1.006l-.806 3.235c.048.012.11.03.18.057l-.183-.045-1.13 4.532c-.086.212-.303.531-.793.41.018.025-1.256-.313-1.256-.313l-.858 1.978 2.25.56c.418.105.828.215 1.231.318l-.715 2.872 1.727.43.708-2.84c.472.127.93.245 1.378.357l-.706 2.828 1.728.43.715-2.866c2.948.558 5.164.333 6.097-2.333.752-2.146-.037-3.385-1.588-4.192 1.13-.26 1.98-1.003 2.207-2.538zm-3.95 5.538c-.533 2.147-4.148.986-5.32.695l.95-3.805c1.172.293 4.929.872 4.37 3.11zm.535-5.569c-.487 1.953-3.495.96-4.47.717l.86-3.45c.975.243 4.118.696 3.61 2.733z" fill="#ffffff"/>
             </svg>
         ),
-        size: 50,
-        animation: '20s',
-        initialRotation: 0,
-        orbit: { x: 300, y: 150, delay: '0s' }
     },
     {
         id: 2,
@@ -28,10 +28,6 @@ const coins = [
                 <path d="M16.498 27.995v-6.028L9 17.616l7.498 10.379z" fill="#fff"/>
             </svg>
         ),
-        size: 45,
-        animation: '20s',
-        initialRotation: 72,
-        orbit: { x: 400, y: 200, delay: '-5s' }
     },
     {
         id: 3,
@@ -44,10 +40,6 @@ const coins = [
                 <path d="M26.6 12.4L24 15L18.6 9.6L21.2 7L26.6 12.4Z" fill="#fff"/>
             </svg>
         ),
-        size: 48,
-        animation: '20s',
-        initialRotation: 144,
-        orbit: { x: 350, y: 180, delay: '-10s' }
     },
     {
         id: 4,
@@ -60,10 +52,6 @@ const coins = [
                 <path d="M16 23.5L12 21V18.5L16 21L20 18.5V21L16 23.5Z" fill="#fff"/>
             </svg>
         ),
-        size: 42,
-        animation: '20s',
-        initialRotation: 216,
-        orbit: { x: 280, y: 140, delay: '-3s' }
     },
     {
         id: 5,
@@ -73,12 +61,16 @@ const coins = [
                 <path d="M9.925 19.89c-.4.19-.85-.17-.75-.6l1.1-4.7c.1-.3.3-.5.6-.5h11.3c.5 0 .8.6.5 1l-2.7 3.7c-.2.3-.5.4-.8.4h-8.4c-.3 0-.6.3-.5.6.1.3.4.5.7.5h8.9c.3 0 .5.2.4.5l-.7 2.5c-.1.3-.4.5-.7.5h-7.5c-.4 0-.7-.3-.7-.7v-.7c0-.4-.4-.6-.7-.4z" fill="#00FFA3"/>
             </svg>
         ),
-        size: 46,
-        animation: '20s',
-        initialRotation: 288,
-        orbit: { x: 320, y: 160, delay: '-7s' }
     }
 ];
+
+const coins = baseCoins.map((coin, index) => ({
+    ...coin,
+    animation: BASE_ANIMATION_DURATION,
+    initialRotation: (360 / TOTAL_COINS) * index,
+    orbitRadius: ORBIT_RADIUS,
+    size: coin.icon.props.width
+}));
 
 const cryptoInfo = {
     1: {
@@ -174,31 +166,27 @@ const FloatingCoins = () => {
                 zIndex: 10,
             }}
         >
-            {coins.map((coin, index) => (
+            {coins.map((coin) => (
                 <Box
                     key={coin.id}
                     sx={{
                         position: 'absolute',
                         top: '50%',
                         left: '50%',
-                        transform: 'translate(-50%, -50%)',
                         transformStyle: 'preserve-3d',
-                        animation: selectedCoin === coin.id ? 'none' : `orbit-${coin.id} ${coin.animation} infinite linear`,
-                        animationDelay: '0s',
+                        animation: `orbit-${coin.id} ${coin.animation} infinite linear`,
+                        animationPlayState: selectedCoin ? 'paused' : 'running',
+                        cursor: 'pointer',
                         [`@keyframes orbit-${coin.id}`]: {
-                            '0%': {
-                                transform: `translate(-50%, -50%) rotateY(${coin.initialRotation}deg) translateX(400px)`,
+                            from: {
+                                transform: `translate(-50%, -50%) rotateY(${coin.initialRotation}deg) translateX(${coin.orbitRadius}px)`,
                             },
-                            '100%': {
-                                transform: `translate(-50%, -50%) rotateY(${coin.initialRotation + 360}deg) translateX(400px)`,
+                            to: {
+                                transform: `translate(-50%, -50%) rotateY(${coin.initialRotation + 360}deg) translateX(${coin.orbitRadius}px)`,
                             }
                         },
-                        cursor: 'pointer',
                     }}
                     onMouseEnter={() => handleCoinHover(coin.id)}
-                    onMouseLeave={() => {
-                        // No hacer nada al salir del mouse
-                    }}
                 >
                     <Box
                         sx={{
