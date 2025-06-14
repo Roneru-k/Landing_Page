@@ -1,6 +1,7 @@
 import { Box, Stack, Typography, Button } from "@mui/material";
 import Image from "next/image";
 import Fondo from '@/public/images/Minimalist Website Launch Computer Mockup Instagram Post.jpg';
+import FloatingCoins from '@/components/FloatingCoins/FloatingCoins';
 
 export default function Home() {
   return (
@@ -8,6 +9,8 @@ export default function Home() {
       width: '100%', 
       minHeight: '100vh',
       background: '#ffffff',
+      position: 'relative',
+      overflow: 'hidden',  // Añadido para contener los elementos flotantes
     }}>
       <Stack
         direction={{ xs: 'column', lg: 'row' }}
@@ -122,13 +125,19 @@ export default function Home() {
         <Box
           flex={1}
           sx={{
+            position: 'relative',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             p: { xs: 4, md: 8 },
-            background: 'linear-gradient(45deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04))',
+            perspective: '1500px',
+            transformStyle: 'preserve-3d',
+            '& > *': {
+              transformStyle: 'preserve-3d'
+            }
           }}
         >
+          <FloatingCoins />
           <Box
             sx={{
               width: '100%',
