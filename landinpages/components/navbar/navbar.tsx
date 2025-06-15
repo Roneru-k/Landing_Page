@@ -14,11 +14,19 @@ export default function Navbar() {
 
     return (
         <AppBar position='fixed' elevation={0} sx={{
-            background: 'rgba(255, 255, 255, 0.8)',
-            backdropFilter: 'blur(10px)',
-            borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+            background: 'rgba(255, 255, 255, 0.85)',
+            backdropFilter: 'blur(12px)',
+            borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
+            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.03)',
         }}>
-            <Toolbar sx={{ justifyContent: 'space-between', py: 1 }}>
+            <Toolbar sx={{ 
+                justifyContent: 'space-between', 
+                py: 1.5,
+                maxWidth: '1400px',
+                width: '100%',
+                mx: 'auto',
+                px: { xs: 2, sm: 3, md: 4 }
+            }}>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Typography 
                         variant='h4' 
@@ -27,7 +35,7 @@ export default function Navbar() {
                             backgroundClip: 'text',
                             WebkitBackgroundClip: 'text',
                             color: 'transparent',
-                            fontWeight: 700,
+                            fontWeight: 800,
                             letterSpacing: '-1px',
                             mr: 4,
                             cursor: 'pointer',
@@ -41,19 +49,22 @@ export default function Navbar() {
                         ZYPHER
                     </Typography>
                     
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ display: 'flex', gap: 1 }}>
                         {menuItems.map((item) => (
                             <Typography
                                 key={item.text}
                                 variant='subtitle1'
                                 sx={{
                                     color: 'rgba(0, 0, 0, 0.87)',
-                                    mx: 2,
+                                    px: 2,
+                                    py: 1,
                                     cursor: 'pointer',
                                     position: 'relative',
                                     fontWeight: 500,
+                                    borderRadius: 1,
                                     '&:hover': {
                                         color: 'primary.main',
+                                        background: 'rgba(25, 118, 210, 0.04)',
                                         '&::after': {
                                             width: '100%',
                                             opacity: 1,
@@ -62,9 +73,10 @@ export default function Navbar() {
                                     '&::after': {
                                         content: '""',
                                         position: 'absolute',
-                                        bottom: -2,
-                                        left: 0,
-                                        width: activeItem === item.text ? '100%' : '0%',
+                                        bottom: 0,
+                                        left: '50%',
+                                        transform: 'translateX(-50%)',
+                                        width: activeItem === item.text ? '80%' : '0%',
                                         opacity: activeItem === item.text ? 1 : 0,
                                         height: '3px',
                                         background: 'linear-gradient(90deg, #1976d2, #42a5f5)',
@@ -93,7 +105,8 @@ export default function Navbar() {
                             boxShadow: '0 4px 14px 0 rgba(25, 118, 210, 0.39)',
                             '&:hover': { 
                                 transform: 'translateY(-2px)',
-                                boxShadow: '0 6px 20px rgba(25, 118, 210, 0.39)'
+                                boxShadow: '0 6px 20px rgba(25, 118, 210, 0.39)',
+                                background: 'linear-gradient(45deg, #1565c0, #1976d2)',
                             },
                             transition: 'all 0.2s ease'
                         }}
@@ -109,10 +122,13 @@ export default function Navbar() {
                             py: 1,
                             borderWidth: 2,
                             fontWeight: 600,
+                            background: 'rgba(255, 255, 255, 0.8)',
+                            backdropFilter: 'blur(8px)',
                             '&:hover': { 
                                 transform: 'translateY(-2px)',
                                 borderWidth: 2,
-                                background: 'rgba(25, 118, 210, 0.04)'
+                                background: 'rgba(25, 118, 210, 0.04)',
+                                boxShadow: '0 4px 12px rgba(25, 118, 210, 0.1)'
                             },
                             transition: 'all 0.2s ease'
                         }}
