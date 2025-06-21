@@ -2,14 +2,14 @@
 import { useState } from 'react'
 import { AppBar, Button, Box, Stack, Toolbar, Typography } from '@mui/material'
 
-
 export default function Navbar() {
     const [activeItem, setActiveItem] = useState<string | null>(null);
 
     const menuItems = [
-        { text: 'Plataforma', href: '/platform' },
-        { text: 'Empresa', href: '/company' },
-        { text: 'Recurso', href: '/resources' },
+        { text: 'Inicio', href: '#inicio'},
+        { text: 'Plataforma', href: '#plataforma' },
+        { text: 'Empresa', href: '#empresa' },
+        { text: 'Recurso', href: '#recurso' },
     ];
 
     return (
@@ -51,43 +51,48 @@ export default function Navbar() {
                     
                     <Box sx={{ display: 'flex', gap: 1 }}>
                         {menuItems.map((item) => (
-                            <Typography
+                            <a
                                 key={item.text}
-                                variant='subtitle1'
-                                sx={{
-                                    color: 'rgba(0, 0, 0, 0.87)',
-                                    px: 2,
-                                    py: 1,
-                                    cursor: 'pointer',
-                                    position: 'relative',
-                                    fontWeight: 500,
-                                    borderRadius: 1,
-                                    '&:hover': {
-                                        color: 'primary.main',
-                                        background: 'rgba(25, 118, 210, 0.04)',
-                                        '&::after': {
-                                            width: '100%',
-                                            opacity: 1,
-                                        }
-                                    },
-                                    '&::after': {
-                                        content: '""',
-                                        position: 'absolute',
-                                        bottom: 0,
-                                        left: '50%',
-                                        transform: 'translateX(-50%)',
-                                        width: activeItem === item.text ? '80%' : '0%',
-                                        opacity: activeItem === item.text ? 1 : 0,
-                                        height: '3px',
-                                        background: 'linear-gradient(90deg, #1976d2, #42a5f5)',
-                                        borderRadius: '2px',
-                                        transition: 'all 0.3s ease'
-                                    }
-                                }}
+                                href={item.href}
+                                style={{ textDecoration: 'none' }}
                                 onClick={() => setActiveItem(item.text)}
                             >
-                                {item.text}
-                            </Typography>
+                                <Typography
+                                    variant='subtitle1'
+                                    sx={{
+                                        color: 'rgba(0, 0, 0, 0.87)',
+                                        px: 2,
+                                        py: 1,
+                                        cursor: 'pointer',
+                                        position: 'relative',
+                                        fontWeight: 500,
+                                        borderRadius: 1,
+                                        '&:hover': {
+                                            color: 'primary.main',
+                                            background: 'rgba(25, 118, 210, 0.04)',
+                                            '&::after': {
+                                                width: '100%',
+                                                opacity: 1,
+                                            }
+                                        },
+                                        '&::after': {
+                                            content: '""',
+                                            position: 'absolute',
+                                            bottom: 0,
+                                            left: '50%',
+                                            transform: 'translateX(-50%)',
+                                            width: activeItem === item.text ? '80%' : '0%',
+                                            opacity: activeItem === item.text ? 1 : 0,
+                                            height: '3px',
+                                            background: 'linear-gradient(90deg, #1976d2, #42a5f5)',
+                                            borderRadius: '2px',
+                                            transition: 'all 0.3s ease'
+                                        }
+                                    }}
+                                >
+                                    {item.text}
+                                </Typography>
+                            </a>
                         ))}
                     </Box>
                 </Box>
