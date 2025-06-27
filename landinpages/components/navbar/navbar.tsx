@@ -8,8 +8,8 @@ export default function Navbar() {
     const menuItems = [
         { text: 'Inicio', href: '#inicio'},
         { text: 'Reseñas', href: '#plataforma' },
-        { text: 'Preguntas Frecuentes', href: '#Preguntas_Frecuentes' },
-        { text: 'Acerca De', href: '#Acerca_De' },
+        { text: 'Empresa', href: '#empresa' },
+        { text: 'Recurso', href: '#recurso' },
     ];
 
     return (

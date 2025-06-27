@@ -54,7 +54,7 @@ export default function Home() {
       <section id="inicio" style={{ scrollMarginTop: '80px' }}>
         <Stack direction={{ xs: 'column', lg: 'row' }} spacing={0} sx={{ minHeight: '100vh', width: '100%' }}>
           <Box flex={1} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', px: { xs: 4, sm: 6, md: 12 }, py: { xs: 6, md: 0 } }}>
-            <Typography variant="h1" component="h1" fontWeight="800" sx={{ fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4rem' }, color: '#1a1a1a', mb: 3 }}>
+            <Typography variant="h1" component="h1" fontWeight={800} sx={{ fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4rem' }, color: '#1a1a1a', mb: 3 }}>
               Automatiza tu trading
             </Typography>
             <Typography variant="h5" sx={{ color: 'rgba(0, 0, 0, 0.7)', mb: 6, lineHeight: 1.8, fontSize: { xs: '1.1rem', md: '1.3rem' } }}>
@@ -65,7 +65,11 @@ export default function Home() {
                 py: 2, px: 6, borderRadius: 3, textTransform: 'none', fontSize: '1.1rem', fontWeight: 600,
                 background: 'linear-gradient(90deg, #42a5f5, #1976d2, #42a5f5)', backgroundSize: '200% 100%',
                 boxShadow: '0 4px 14px 0 rgba(25, 118, 210, 0.39)', position: 'relative', overflow: 'hidden',
-                '&::before': { content: '""', position: 'absolute', top: 0, left: '-100%', width: '100%', height: '100%', background: 'linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%)', animation: 'shimmer 2s infinite' },
+                '&::before': {
+                  content: '""', position: 'absolute', top: 0, left: '-100%', width: '100%', height: '100%',
+                  background: 'linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%)',
+                  animation: 'shimmer 2s infinite'
+                },
                 '@keyframes shimmer': { '0%': { left: '-100%' }, '100%': { left: '100%' } },
                 '&:hover': { backgroundPosition: 'right center', transform: 'translateY(-2px)', boxShadow: '0 6px 20px rgba(25, 118, 210, 0.39)' },
                 transition: 'all 0.3s ease-in-out, background-position 0.8s',
@@ -77,6 +81,7 @@ export default function Home() {
               </Button>
             </Stack>
           </Box>
+
           <Box flex={1} sx={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', p: { xs: 4, md: 8 }, perspective: '1500px', transformStyle: 'preserve-3d' }}>
             <FloatingCoins />
             <Box sx={{
@@ -113,7 +118,7 @@ export default function Home() {
       </section>
 
       {/* === PREGUNTAS FRECUENTES === */}
-      <section id="Preguntas_Frecuentes" style={{ scrollMarginTop: '80px', padding: '100px 20px', backgroundColor: '#F9FAFB' }}>
+      <section id="faq" style={{ scrollMarginTop: '80px', padding: '100px 20px', backgroundColor: '#F9FAFB' }}>
         <Container maxWidth="md">
           <Typography variant="h2" fontWeight={800} gutterBottom textAlign="center">Preguntas Frecuentes</Typography>
           {faqs.map((faq, index) => (
@@ -132,7 +137,7 @@ export default function Home() {
       </section>
 
       {/* === EMPRESA === */}
-      <section id="Acerca_De" style={{ scrollMarginTop: '80px', padding: '100px 20px', backgroundColor: '#ffffff' }}>
+      <section id="empresa" style={{ scrollMarginTop: '80px', padding: '100px 20px', backgroundColor: '#ffffff' }}>
         <Container maxWidth="md">
           <Typography variant="h2" fontWeight={800} gutterBottom>Empresa</Typography>
           <Typography variant="h6" color="text.secondary" sx={{ mb: 4 }}>
