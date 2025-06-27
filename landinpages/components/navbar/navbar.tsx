@@ -7,9 +7,15 @@ export default function Navbar() {
 
     const menuItems = [
         { text: 'Inicio', href: '#inicio'},
+<<<<<<< Updated upstream
         { text: 'Plataforma', href: '#plataforma' },
         { text: 'Empresa', href: '#empresa' },
         { text: 'Recurso', href: '#recurso' },
+=======
+        { text: 'Reseñas', href: '#plataforma' },
+        { text: 'Preguntas Frecuentes', href: '#Preguntas_Frecuentes' },
+        { text: 'Acerca De', href: '#Acerca_De' },
+>>>>>>> Stashed changes
     ];
 
     return (
