@@ -11,8 +11,6 @@ import {
 import Image from "next/image";
 import Fondo from '@/public/images/Minimalist Website Launch Computer Mockup Instagram Post.jpg';
 import FloatingCoins from '@/components/FloatingCoins/FloatingCoins';
-<<<<<<< Updated upstream
-=======
 import TestimonialCard from '@/components/CardTestimonio/Testimonios';
 import Persona1 from '@/public/images/RetratosReseña/Persona1.jpeg'
 import Persona2 from '@/public/images/RetratosReseña/Persona2.jpg'
@@ -43,7 +41,6 @@ const faqs = [
   { question: "¿Qué pasa si no me gusta la plataforma?", answer: "Puedes cancelar en cualquier momento. Además, ofrecemos soporte para resolver cualquier inconveniente que puedas tener." },
   { question: "¿Cómo es el proceso de creación de tu cuenta?", answer: "Simplemente crea tu cuenta, conecta tu exchange (como Binance), configura tus bots y comienza a operar." }
 ];
->>>>>>> Stashed changes
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -102,32 +99,6 @@ export default function Home() {
       </section>
 
       {/* === PLATAFORMA === */}
-<<<<<<< Updated upstream
-      <section
-        id="plataforma"
-        style={{
-          scrollMarginTop: '80px',
-          padding: '100px 20px',
-          backgroundColor: '#f8f9fb',
-        }}
-      >
-        <Container maxWidth="md">
-          <Typography
-            variant="h2"
-            fontWeight={800}
-            gutterBottom
-          >
-            Plataforma
-          </Typography>
-
-          <Typography
-            variant="h6"
-            color="text.secondary"
-            sx={{ mb: 4 }}
-          >
-            Con nuestra plataforma puedes integrar múltiples exchanges, usar bots personalizables y acceder a análisis de mercado en tiempo real.
-          </Typography>
-=======
       <section id="plataforma" style={{ scrollMarginTop: '80px', padding: '100px 20px', position: 'relative', backgroundColor: '#f8f9fb', overflow: 'hidden' }}>
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Typography marginBottom={9} variant="h2" fontWeight={800} textAlign="center">
@@ -157,7 +128,6 @@ export default function Home() {
               {activeIndex === index && <Box sx={{ p: 2, backgroundColor: '#fff', color: '#24292F' }}>{faq.answer}</Box>}
             </Box>
           ))}
->>>>>>> Stashed changes
         </Container>
       </section>
 
