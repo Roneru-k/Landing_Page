@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { AppBar, Button, Box, Stack, Toolbar, Typography } from '@mui/material'
+import { AppBar, Button, Box, Toolbar, Typography } from '@mui/material'
 
 export default function Navbar() {
   const [activeItem, setActiveItem] = useState<string | null>(null);
@@ -8,8 +8,8 @@ export default function Navbar() {
   const menuItems = [
     { text: 'Inicio', href: '#inicio' },
     { text: 'Reseñas', href: '#plataforma' },
-    { text: 'Preguntas Frecuentes', href: '#Preguntas_Frecuentes' },
-    { text: 'Sobre Nosotros', href: '#Nosototros' },
+    { text: 'Preguntas Frecuentes', href: '#preguntas' },
+    { text: 'Sobre Nosotros', href: '#nosotros' },
   ];
 
   return (

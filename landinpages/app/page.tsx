@@ -107,7 +107,7 @@ export default function Home() {
 
       {/* === Quienes somos === */}
       <section
-        id="Nosotros"
+        id="nosotros"
         style={{
           scrollMarginTop: '80px',
           padding: '100px 20px',
@@ -206,7 +206,7 @@ export default function Home() {
 
 
       {/* === PREGUNTAS FRECUENTES === */}
-      <section id="faq" style={{ scrollMarginTop: '80px', padding: '100px 20px', backgroundColor: '#F9FAFB' }}>
+      <section id="preguntas" style={{ scrollMarginTop: '80px', padding: '100px 20px', backgroundColor: '#F9FAFB' }}>
         <Container maxWidth="md">
           <Typography variant="h2" fontWeight={800} gutterBottom textAlign="center">Preguntas Frecuentes</Typography>
           {faqs.map((faq, index) => (
