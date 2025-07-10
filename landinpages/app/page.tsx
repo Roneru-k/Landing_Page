@@ -16,7 +16,6 @@ import Persona1 from '@/public/images/RetratosReseña/Persona1.jpeg'
 import Persona2 from '@/public/images/RetratosReseña/Persona2.jpg'
 import Persona3 from '@/public/images/RetratosReseña/Persona3.jpg'
 import { motion } from "framer-motion";
-import { blue } from "@mui/material/colors";
 import AnimatedIconsBackground from '@/components/AnimatedIconsBackground/AnimatedIconsBackground';
 
 const MotionContainer = motion.div;
