@@ -108,7 +108,7 @@ const cryptoInfo = {
 const FloatingCoins = () => {
     const [selectedCoin, setSelectedCoin] = useState<number | null>(null);
     const [modalInfo, setModalInfo] = useState<typeof cryptoInfo[keyof typeof cryptoInfo] | null>(null);
-    const modalTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const modalTimeoutRef = useRef<NodeJS.Timeout | null| undefined>(undefined);
 
     const handleCoinHover = (coinId: number) => {
         if (modalTimeoutRef.current) {

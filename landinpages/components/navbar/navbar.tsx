@@ -9,7 +9,7 @@ export default function Navbar() {
     { text: 'Inicio', href: '#inicio' },
     { text: 'Reseñas', href: '#plataforma' },
     { text: 'Preguntas Frecuentes', href: '#Preguntas_Frecuentes' },
-    { text: 'Acerca De', href: '#Acerca_De' },
+    { text: 'Sobre Nosotros', href: '#Nosototros' },
   ];
 
   return (

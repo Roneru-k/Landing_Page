@@ -1,0 +1,9 @@
+<!-- public/icons/ethereum.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 417" fill="none">
+  <path fill="#343434" d="M127.6 0v141.7l127.5 57.1z"></path>
+  <path fill="#8C8C8C" d="M127.6 0L0 198.8l127.6-57.1z"></path>
+  <path fill="#3C3C3B" d="M127.6 284.2v132.2l127.6-177.8z"></path>
+  <path fill="#8C8C8C" d="M127.6 416.4V284.2L0 238.6z"></path>
+  <path fill="#141414" d="M127.6 259.7l127.5-74.2-127.5-57.1z"></path>
+  <path fill="#393939" d="M0 185.5l127.6 74.2V128.4z"></path>
+</svg>

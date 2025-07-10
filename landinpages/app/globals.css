@@ -49,3 +49,59 @@
  text, svg title {
   display: none !important;
 }
+
+@keyframes jump {
+  0%   { transform: translateY(0); opacity: 0.3; }
+  30%  { transform: translateY(-40px) rotate(10deg); opacity: 2.6; }
+  70%  { transform: translateY(20px) rotate(-10deg); opacity: 2.8; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1.5; }
+}
+
+.animated-icon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  opacity: 2.0;
+  pointer-events: none;
+  z-index: 0;
+  animation: jump 4s ease-in-out infinite;
+}
+
+.video-wrapper {
+  position: relative;
+  padding: 8px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #5f2eea, #42a5f5); /* azul fuerte a violeta */
+  animation: spin-border 6s linear infinite;
+  display: inline-block;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+  animation: float-bounce 4s ease-in-out infinite, spin-border 8s linear infinite;
+}
+
+.video-wrapper video {
+  border-radius: 12px;
+  display: block;
+  width: 100%;
+  height: 350;
+}
+
+/* Animación del borde girando (efecto visual) */
+@keyframes spin-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Movimiento sutil del video (como flotando) */
+@keyframes float-bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  60% {
+    transform: translateY(-11px);
+  }
+}

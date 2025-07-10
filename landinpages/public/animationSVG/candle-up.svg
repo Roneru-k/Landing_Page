@@ -1,0 +1,6 @@
+<!-- public/icons/candle-up.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="48" viewBox="0 0 24 48" fill="none">
+  <rect x="9" y="12" width="6" height="24" fill="#00c853"></rect>
+  <line x1="12" y1="0" x2="12" y2="12" stroke="#00c853" stroke-width="2"></line>
+  <line x1="12" y1="36" x2="12" y2="48" stroke="#00c853" stroke-width="2"></line>
+</svg>

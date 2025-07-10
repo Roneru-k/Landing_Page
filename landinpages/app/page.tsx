@@ -17,6 +17,7 @@ import Persona2 from '@/public/images/RetratosReseña/Persona2.jpg'
 import Persona3 from '@/public/images/RetratosReseña/Persona3.jpg'
 import { motion } from "framer-motion";
 import { blue } from "@mui/material/colors";
+import AnimatedIconsBackground from '@/components/AnimatedIconsBackground/AnimatedIconsBackground';
 
 const MotionContainer = motion.div;
 
@@ -103,19 +104,106 @@ export default function Home() {
         </Stack>
       </section>
 
+
+      {/* === Quienes somos === */}
+      <section
+        id="Nosotros"
+        style={{
+          scrollMarginTop: '80px',
+          padding: '100px 20px',
+          backgroundColor: '#ffffff',
+        }}
+      >
+        <Container maxWidth="xl">
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', md: 'row' },
+              alignItems: 'center',
+              gap: 4,
+            }}
+          >
+            {/* VIDEO */}
+            <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', height:'400' }}>
+              <Box className="video-wrapper">
+                <video
+                  width="100%"
+                  height={3000}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src="/images/videos/videoTrading2.mp4" type="video/mp4" />
+                  Tu navegador no soporta este video.
+                </video>
+              </Box>
+            </Box>
+
+   {/* TEXTO */}
+<Box sx={{ flex: 1 }}>
+  <Typography textAlign="center" variant="h2" fontWeight={800} gutterBottom>
+    ¿Quiénes Somos?
+  </Typography>
+
+  {/* Línea decorativa */}
+  <Box
+    sx={{
+      height: '6px',
+      width: '80px',
+      margin: '0 auto 24px',
+      background: 'linear-gradient(90deg, #5f2eea, #42a5f5)',
+      borderRadius: '4px',
+    }}
+  />
+
+  <Typography variant="h6" color="text.secondary" sx={{ mb: 4, textAlign:'justify' }}>
+    ZYPHER nació con la visión de democratizar el acceso a tecnologías avanzadas de trading.
+    Nuestro equipo combina expertos financieros con desarrolladores de alto nivel.
+  </Typography>
+</Box>
+
+
+          </Box>
+        </Container>
+      </section>
+
+
       {/* === PLATAFORMA === */}
-      <section id="plataforma" style={{ scrollMarginTop: '80px', padding: '100px 20px', position: 'relative', backgroundColor: '#f8f9fb', overflow: 'hidden' }}>
+      <section
+        id="plataforma"
+        style={{
+          scrollMarginTop: '80px',
+          padding: '100px 20px',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        <AnimatedIconsBackground />
+
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Typography marginBottom={9} variant="h2" fontWeight={800} textAlign="center">
             Opiniones de nuestros usuarios
           </Typography>
-          <MotionContainer variants={containerVariants} initial="hidden" animate="visible" style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center' }}>
-            <TestimonialCard Imagen={Persona1} texto="Zypher me ha ayudado a automatizar mis operaciones en futuros de Binance..." nombre="Luis Ramírez" delay={0} />
-            <TestimonialCard Imagen={Persona2} texto="Antes tenía miedo de operar en futuros, pero gracias a Zypher..." nombre="María González" delay={200} />
-            <TestimonialCard Imagen={Persona3} texto="La gestión de portafolio en Zypher es simplemente increíble..." nombre="Carlos Méndez" delay={400} />
+
+          <MotionContainer
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '2rem',
+              justifyContent: 'center',
+            }}
+          >
+            <TestimonialCard Imagen={Persona1} texto="Zypher me ha ayudado a automatizar mis operaciones en futuros de Binance. Los bots son rápidos y precisos, ahora tengo más tiempo libre sin preocuparme por el mercado..." nombre="Luis Ramírez" delay={0} />
+            <TestimonialCard Imagen={Persona2} texto="Antes tenía miedo de operar en futuros, pero gracias a Zypher y su interfaz intuitiva, pude empezar sin complicaciones. Excelente herramienta para traders de todos los niveles..." nombre="María González" delay={200} />
+            <TestimonialCard Imagen={Persona3} texto="La gestión de portafolio en Zypher es simplemente increíble. Los algoritmos analizan el mercado en tiempo real y ejecutan órdenes que han mejorado mi rentabilidad de forma consistente..." nombre="Carlos Méndez" delay={400} />
           </MotionContainer>
         </Container>
       </section>
+
 
       {/* === PREGUNTAS FRECUENTES === */}
       <section id="faq" style={{ scrollMarginTop: '80px', padding: '100px 20px', backgroundColor: '#F9FAFB' }}>
@@ -136,15 +224,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* === EMPRESA === */}
-      <section id="empresa" style={{ scrollMarginTop: '80px', padding: '100px 20px', backgroundColor: '#ffffff' }}>
-        <Container maxWidth="md">
-          <Typography variant="h2" fontWeight={800} gutterBottom>Empresa</Typography>
-          <Typography variant="h6" color="text.secondary" sx={{ mb: 4 }}>
-            ZYPHER nació con la visión de democratizar el acceso a tecnologías avanzadas de trading. Nuestro equipo combina expertos financieros con desarrolladores de alto nivel.
-          </Typography>
-        </Container>
-      </section>
+
 
       {/* === RECURSO === */}
       <section id="recurso" style={{ scrollMarginTop: '80px', padding: '100px 20px', backgroundColor: '#f0f0f0' }}>
