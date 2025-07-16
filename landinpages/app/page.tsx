@@ -374,15 +374,15 @@ export default function Home() {
 
 
       {/* === PLANES === */}
-      <section id="planes" style={{ background: '#F9FAFB', padding: '80px 0 60px 0' }}>
+      <section id="planes" style={{ background: '#fff', padding: '80px 0 60px 0' }}>
         <Container maxWidth="lg">
-          <Typography variant="h2" fontWeight={800} textAlign="center" sx={{ fontSize: { xs: '2.3rem', md: '2.7rem' }, mb: 1, color: '#23272F', letterSpacing: -1 }}>
+          <Typography variant="h2" fontWeight={800} textAlign="center" sx={{ fontSize: { xs: '2.5rem', md: '2.9rem' }, mb: 1, color: '#23272F', letterSpacing: -1, fontFamily: 'inherit' }}>
             Planes a tu Medida
           </Typography>
-          <Typography variant="h6" textAlign="center" sx={{ mb: 6, color: '#6B7280', fontWeight: 400, fontSize: { xs: '1.08rem', md: '1.18rem' } }}>
+          <Typography variant="h6" textAlign="center" sx={{ mb: 7, color: '#6B7280', fontWeight: 400, fontSize: { xs: '1.13rem', md: '1.22rem' }, fontFamily: 'inherit' }}>
             Elige el plan que mejor se adapte a tus necesidades de inversión
           </Typography>
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 6, md: 5 }, justifyContent: 'center', alignItems: 'stretch', mb: 3 }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 7, md: 6 }, justifyContent: 'center', alignItems: 'stretch', mb: 3 }}>
             {/* Básico */}
             <motion.div
               initial={{ opacity: 0, y: 60 }}
@@ -391,13 +391,15 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.1 }}
               style={{ flex: 1, display: 'flex' }}
             >
-              <Box sx={{ flex: 1, bgcolor: '#fff', borderRadius: 5, boxShadow: '0 8px 32px 0 rgba(30,32,48,0.10)', p: 5, minWidth: 290, maxWidth: 390, minHeight: 540, mx: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', border: '2.5px solid transparent', transition: 'box-shadow 0.2s, border 0.2s', mb: { xs: 0, md: 0 } }}>
-                <Typography fontWeight={800} sx={{ fontSize: '1.28rem', mb: 0.5, color: '#23272F', letterSpacing: -0.5 }}>Básico</Typography>
-                <Typography sx={{ color: '#6B7280', fontWeight: 400, mb: 2.5, fontSize: '1.08rem' }}>Ideal para comenzar</Typography>
-                <Typography sx={{ color: '#2563eb', fontWeight: 800, fontSize: '2.3rem', mb: 0.5, letterSpacing: -1 }}>$49<span style={{ fontWeight: 400, fontSize: '1.1rem', color: '#6B7280' }}>/mes</span></Typography>
-                <Typography sx={{ color: '#6B7280', fontSize: '1.13rem', mb: 3, textAlign: 'center' }}>Acceso a estrategias básicas y mercados limitados</Typography>
-                <Button variant="contained" sx={{ bgcolor: '#2563eb', color: '#fff', borderRadius: 2.5, fontWeight: 800, fontSize: '1.08rem', py: 1.3, px: 3, mb: 3, boxShadow: '0 2px 8px 0 rgba(37,99,235,0.10)', textTransform: 'uppercase', letterSpacing: 1, '&:hover': { bgcolor: '#1749b1' } }}>Seleccionar plan</Button>
-                <Box sx={{ width: '100%', mt: 2, mb: 1.5, display: 'flex', flexDirection: 'column', gap: 1.2 }}>
+              <Box sx={{ flex: 1, bgcolor: '#fff', borderRadius: 6, boxShadow: '0 8px 32px 0 rgba(30,32,48,0.10)', p: 0, minWidth: 320, maxWidth: 400, minHeight: 600, mx: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'stretch', border: '2.5px solid transparent', transition: 'box-shadow 0.2s, border 0.2s', mb: { xs: 0, md: 0 }, fontFamily: 'inherit' }}>
+                <Box sx={{ p: 4, pb: 2.5, borderBottom: '1.5px solid #F0F1F3', borderTopLeftRadius: 24, borderTopRightRadius: 24 }}>
+                  <Typography fontWeight={800} sx={{ fontSize: '1.32rem', mb: 0.5, color: '#23272F', fontFamily: 'inherit' }}>Básico</Typography>
+                  <Typography sx={{ color: '#6B7280', fontWeight: 400, mb: 2, fontSize: '1.09rem', fontFamily: 'inherit' }}>Ideal para comenzar</Typography>
+                  <Typography className="poppins" sx={{ color: '#2563eb', fontWeight: 800, fontSize: '2.4rem', mb: 0.5, letterSpacing: -1 }}>$49<span style={{ fontWeight: 400, fontSize: '1.1rem', color: '#6B7280' }}>/mes</span></Typography>
+                  <Typography sx={{ color: '#6B7280', fontSize: '1.15rem', mb: 2.5, textAlign: 'left', fontFamily: 'inherit' }}>Acceso a estrategias básicas y mercados limitados</Typography>
+                  <Button className="poppins" variant="contained" sx={{ bgcolor: '#2563eb', color: '#fff', borderRadius: 2.5, fontWeight: 800, fontSize: '1.09rem', py: 1.3, px: 3, mb: 2, boxShadow: 'none', textTransform: 'uppercase', letterSpacing: 1, fontFamily: 'inherit', '&:hover': { bgcolor: '#1749b1' } }}>Seleccionar plan</Button>
+                </Box>
+                <Box sx={{ width: '100%', flex: 1, py: 2.5, px: 4, display: 'flex', flexDirection: 'column', gap: 1.5, justifyContent: 'center', borderBottomLeftRadius: 24, borderBottomRightRadius: 24 }}>
                   <FeatureItem checked={true} color="#23272F">3 estrategias básicas</FeatureItem>
                   <FeatureItem checked={true} color="#23272F">Mercados Forex y Cripto</FeatureItem>
                   <FeatureItem checked={true} color="#23272F">Soporte por email</FeatureItem>
@@ -414,14 +416,18 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.2 }}
               style={{ flex: 1, display: 'flex' }}
             >
-              <Box sx={{ flex: 1, bgcolor: '#fff', borderRadius: 5, boxShadow: '0 12px 40px 0 rgba(37,99,235,0.18)', p: 5, minWidth: 290, maxWidth: 410, minHeight: 580, mx: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', border: '3px solid #2563eb', position: 'relative', zIndex: 2, transition: 'box-shadow 0.2s, border 0.2s', mb: { xs: 0, md: 0 } }}>
-                <Box sx={{ position: 'absolute', top: -28, left: '50%', transform: 'translateX(-50%)', bgcolor: '#2563eb', color: '#fff', px: 3.5, py: 0.8, borderRadius: 2.5, fontWeight: 800, fontSize: '1.08rem', letterSpacing: 1, boxShadow: '0 2px 8px 0 rgba(37,99,235,0.13)', textTransform: 'uppercase' }}>Popular</Box>
-                <Typography fontWeight={800} sx={{ fontSize: '1.28rem', mb: 0.5, color: '#23272F', mt: 2, letterSpacing: -0.5 }}>Profesional</Typography>
-                <Typography sx={{ color: '#6B7280', fontWeight: 400, mb: 2.5, fontSize: '1.08rem' }}>Para traders serios</Typography>
-                <Typography sx={{ color: '#2563eb', fontWeight: 800, fontSize: '2.3rem', mb: 0.5, letterSpacing: -1 }}>$99<span style={{ fontWeight: 400, fontSize: '1.1rem', color: '#6B7280' }}>/mes</span></Typography>
-                <Typography sx={{ color: '#6B7280', fontSize: '1.13rem', mb: 3, textAlign: 'center' }}>Acceso completo a todas las estrategias y mercados</Typography>
-                <Button variant="contained" sx={{ bgcolor: '#2563eb', color: '#fff', borderRadius: 2.5, fontWeight: 800, fontSize: '1.08rem', py: 1.3, px: 3, mb: 3, boxShadow: '0 2px 8px 0 rgba(37,99,235,0.10)', textTransform: 'uppercase', letterSpacing: 1, '&:hover': { bgcolor: '#1749b1' } }}>Seleccionar plan</Button>
-                <Box sx={{ width: '100%', mt: 2, mb: 1.5, display: 'flex', flexDirection: 'column', gap: 1.2 }}>
+              <Box sx={{ flex: 1, bgcolor: '#fff', borderRadius: 6, boxShadow: '0 16px 48px 0 rgba(37,99,235,0.18)', p: 0, minWidth: 340, maxWidth: 420, minHeight: 650, mx: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'stretch', border: '3px solid #2563eb', position: 'relative', zIndex: 2, transition: 'box-shadow 0.2s, border 0.2s', mb: { xs: 0, md: 0 }, fontFamily: 'inherit' }}>
+                <Box sx={{ bgcolor: '#2563eb', color: '#fff', px: 0, py: 0, borderTopLeftRadius: 24, borderTopRightRadius: 24, height: 54, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '1.13rem', letterSpacing: 1, textTransform: 'uppercase', fontFamily: 'inherit' }}>
+                  POPULAR
+                </Box>
+                <Box sx={{ p: 4, pb: 2.5, borderBottom: '1.5px solid #F0F1F3' }}>
+                  <Typography fontWeight={800} sx={{ fontSize: '1.32rem', mb: 0.5, color: '#23272F', fontFamily: 'inherit' }}>Profesional</Typography>
+                  <Typography sx={{ color: '#6B7280', fontWeight: 400, mb: 2, fontSize: '1.09rem', fontFamily: 'inherit' }}>Para traders serios</Typography>
+                  <Typography className="poppins" sx={{ color: '#2563eb', fontWeight: 800, fontSize: '2.4rem', mb: 0.5, letterSpacing: -1 }}>$99<span style={{ fontWeight: 400, fontSize: '1.1rem', color: '#6B7280' }}>/mes</span></Typography>
+                  <Typography sx={{ color: '#6B7280', fontSize: '1.15rem', mb: 2.5, textAlign: 'left', fontFamily: 'inherit' }}>Acceso completo a todas las estrategias y mercados</Typography>
+                  <Button className="poppins" variant="contained" sx={{ bgcolor: '#2563eb', color: '#fff', borderRadius: 2.5, fontWeight: 800, fontSize: '1.09rem', py: 1.3, px: 3, mb: 2, boxShadow: 'none', textTransform: 'uppercase', letterSpacing: 1, fontFamily: 'inherit', '&:hover': { bgcolor: '#1749b1' } }}>Seleccionar plan</Button>
+                </Box>
+                <Box sx={{ width: '100%', flex: 1, py: 2.5, px: 4, display: 'flex', flexDirection: 'column', gap: 1.5, justifyContent: 'center', borderBottomLeftRadius: 24, borderBottomRightRadius: 24 }}>
                   <FeatureItem checked={true} color="#23272F">15+ estrategias avanzadas</FeatureItem>
                   <FeatureItem checked={true} color="#23272F">Todos los mercados disponibles</FeatureItem>
                   <FeatureItem checked={true} color="#23272F">Soporte prioritario 24/5</FeatureItem>
@@ -438,13 +444,15 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.3 }}
               style={{ flex: 1, display: 'flex' }}
             >
-              <Box sx={{ flex: 1, bgcolor: '#fff', borderRadius: 5, boxShadow: '0 8px 32px 0 rgba(30,32,48,0.10)', p: 5, minWidth: 290, maxWidth: 390, minHeight: 540, mx: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', border: '2.5px solid transparent', transition: 'box-shadow 0.2s, border 0.2s', mb: { xs: 0, md: 0 } }}>
-                <Typography fontWeight={800} sx={{ fontSize: '1.28rem', mb: 0.5, color: '#23272F', letterSpacing: -0.5 }}>Institucional</Typography>
-                <Typography sx={{ color: '#6B7280', fontWeight: 400, mb: 2.5, fontSize: '1.08rem' }}>Para grandes capitales</Typography>
-                <Typography sx={{ color: '#2563eb', fontWeight: 800, fontSize: '2.3rem', mb: 0.5, letterSpacing: -1 }}>$299<span style={{ fontWeight: 400, fontSize: '1.1rem', color: '#6B7280' }}>/mes</span></Typography>
-                <Typography sx={{ color: '#6B7280', fontSize: '1.13rem', mb: 3, textAlign: 'center' }}>Solución personalizada para inversores institucionales</Typography>
-                <Button variant="contained" sx={{ bgcolor: '#2563eb', color: '#fff', borderRadius: 2.5, fontWeight: 800, fontSize: '1.08rem', py: 1.3, px: 3, mb: 3, boxShadow: '0 2px 8px 0 rgba(37,99,235,0.10)', textTransform: 'uppercase', letterSpacing: 1, '&:hover': { bgcolor: '#1749b1' } }}>Contactar ventas</Button>
-                <Box sx={{ width: '100%', mt: 2, mb: 1.5, display: 'flex', flexDirection: 'column', gap: 1.2 }}>
+              <Box sx={{ flex: 1, bgcolor: '#fff', borderRadius: 6, boxShadow: '0 8px 32px 0 rgba(30,32,48,0.10)', p: 0, minWidth: 320, maxWidth: 400, minHeight: 600, mx: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'stretch', border: '2.5px solid transparent', transition: 'box-shadow 0.2s, border 0.2s', mb: { xs: 0, md: 0 }, fontFamily: 'inherit' }}>
+                <Box sx={{ p: 4, pb: 2.5, borderBottom: '1.5px solid #F0F1F3', borderTopLeftRadius: 24, borderTopRightRadius: 24 }}>
+                  <Typography fontWeight={800} sx={{ fontSize: '1.32rem', mb: 0.5, color: '#23272F', fontFamily: 'inherit' }}>Institucional</Typography>
+                  <Typography sx={{ color: '#6B7280', fontWeight: 400, mb: 2, fontSize: '1.09rem', fontFamily: 'inherit' }}>Para grandes capitales</Typography>
+                  <Typography className="poppins" sx={{ color: '#2563eb', fontWeight: 800, fontSize: '2.4rem', mb: 0.5, letterSpacing: -1 }}>$299<span style={{ fontWeight: 400, fontSize: '1.1rem', color: '#6B7280' }}>/mes</span></Typography>
+                  <Typography sx={{ color: '#6B7280', fontSize: '1.15rem', mb: 2.5, textAlign: 'left', fontFamily: 'inherit' }}>Solución personalizada para inversores institucionales</Typography>
+                  <Button className="poppins" variant="contained" sx={{ bgcolor: '#2563eb', color: '#fff', borderRadius: 2.5, fontWeight: 800, fontSize: '1.09rem', py: 1.3, px: 3, mb: 2, boxShadow: 'none', textTransform: 'uppercase', letterSpacing: 1, fontFamily: 'inherit', '&:hover': { bgcolor: '#1749b1' } }}>Contactar ventas</Button>
+                </Box>
+                <Box sx={{ width: '100%', flex: 1, py: 2.5, px: 4, display: 'flex', flexDirection: 'column', gap: 1.5, justifyContent: 'center', borderBottomLeftRadius: 24, borderBottomRightRadius: 24 }}>
                   <FeatureItem checked={true} color="#23272F">Estrategias personalizadas</FeatureItem>
                   <FeatureItem checked={true} color="#23272F">Acceso a API completa</FeatureItem>
                   <FeatureItem checked={true} color="#23272F">Gerente de cuenta dedicado</FeatureItem>
@@ -454,9 +462,9 @@ export default function Home() {
               </Box>
             </motion.div>
           </Box>
-          <Box sx={{ textAlign: 'center', mt: 4 }}>
-            <Typography sx={{ color: '#6B7280', fontSize: '1.13rem', mb: 1.5 }}>¿Necesitas algo más personalizado?</Typography>
-            <Button variant="outlined" sx={{ borderColor: '#2563eb', color: '#2563eb', borderRadius: 2.5, fontWeight: 800, fontSize: '1.08rem', px: 3, py: 1.2, textTransform: 'uppercase', letterSpacing: 1, '&:hover': { bgcolor: '#2563eb', color: '#fff', borderColor: '#2563eb' } }}>
+          <Box sx={{ textAlign: 'center', mt: 5 }}>
+            <Typography sx={{ color: '#6B7280', fontSize: '1.18rem', mb: 2, fontFamily: 'inherit' }}>¿Necesitas algo más personalizado?</Typography>
+            <Button className="poppins" variant="outlined" sx={{ borderColor: '#2563eb', color: '#2563eb', borderRadius: 2.5, fontWeight: 800, fontSize: '1.09rem', px: 3, py: 1.3, textTransform: 'uppercase', letterSpacing: 1, fontFamily: 'inherit', '&:hover': { bgcolor: '#2563eb', color: '#fff', borderColor: '#2563eb' } }}>
               Solicitar plan personalizado
             </Button>
           </Box>
