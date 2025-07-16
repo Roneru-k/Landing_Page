@@ -10,15 +10,24 @@ import {
 import { Star } from "@mui/icons-material";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import type { StaticImageData } from "next/image";
 
 // Tarjeta animada con hover
 const MotionCard = motion(Card);
 
-export default function TestimonialCard({ Imagen, texto, nombre, delay = 0 }) {
+interface TestimonialCardProps {
+  Imagen: string | StaticImageData;
+  texto: string;
+  nombre: string;
+  delay?: number;
+}
+
+export default function TestimonialCard({ Imagen, texto, nombre, delay = 0 }: TestimonialCardProps) {
     return (
         <MotionCard
             initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.5 }}
             whileHover={{
                 scale: 1.05,
                 boxShadow: "0 12px 30px rgba(0, 123, 255, 0.2)",
@@ -41,9 +50,7 @@ export default function TestimonialCard({ Imagen, texto, nombre, delay = 0 }) {
                 mx: 'auto',
                 cursor: 'pointer',
                 border: '8px solid #007bff', // azul brillante
-                borderRadius: 6,
             }}
-
         >
             {/* Avatar flotante */}
             <Box

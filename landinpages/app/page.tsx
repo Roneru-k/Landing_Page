@@ -15,8 +15,9 @@ import TestimonialCard from '@/components/CardTestimonio/Testimonios';
 import Persona1 from '@/public/images/RetratosReseña/Persona1.jpeg'
 import Persona2 from '@/public/images/RetratosReseña/Persona2.jpg'
 import Persona3 from '@/public/images/RetratosReseña/Persona3.jpg'
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 import AnimatedIconsBackground from '@/components/AnimatedIconsBackground/AnimatedIconsBackground';
+import { AnimatePresence } from 'framer-motion';
 
 const MotionContainer = motion.div;
 
@@ -34,12 +35,9 @@ const containerVariants = {
 const faqs = [
   { question: "¿Qué te ofrecemos en Zypher?", answer: "Te ofrecemos bots de trading automáticos, gestión de portafolio, y ejecución de órdenes algorítmicas de forma sencilla y eficiente." },
   { question: "¿Por qué es tan importante tener un bot de trading?", answer: "El bot permite ejecutar estrategias automatizadas sin intervención humana, optimizando oportunidades de trading 24/7." },
-  { question: "¿Por qué es importante un diseño atractivo en una plataforma de trading?", answer: "Un diseño claro y atractivo mejora la experiencia del usuario, facilita la navegación y permite tomar decisiones rápidas y eficientes." },
   { question: "¿Qué debo tener en cuenta al contratar un servicio de bots?", answer: "Debes verificar la seguridad, el rendimiento histórico, las configuraciones de riesgo y el soporte técnico disponible." },
-  { question: "¿Quién controla el hosting y dominio?", answer: "Nosotros nos encargamos de toda la infraestructura para que te concentres en tus estrategias de trading." },
   { question: "¿Hay que pagar mensualidades?", answer: "Sí, ofrecemos planes mensuales adaptados a las necesidades de cada usuario. Puedes iniciar con una prueba gratuita." },
-  { question: "¿Qué pasa si no me gusta la plataforma?", answer: "Puedes cancelar en cualquier momento. Además, ofrecemos soporte para resolver cualquier inconveniente que puedas tener." },
-  { question: "¿Cómo es el proceso de creación de tu cuenta?", answer: "Simplemente crea tu cuenta, conecta tu exchange (como Binance), configura tus bots y comienza a operar." }
+  { question: "¿Cómo es el proceso de creación de tu cuenta?", answer: "Simplemente crea tu cuenta, conecta tu exchange (como Binance), configura tus bots y comienza a operar." },
 ];
 
 export default function Home() {
@@ -109,60 +107,231 @@ export default function Home() {
         id="nosotros"
         style={{
           scrollMarginTop: '80px',
-          padding: '100px 20px',
+          padding: 0,
           backgroundColor: '#ffffff',
         }}
       >
-        <Container maxWidth="xl">
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: { xs: 'column', md: 'row' },
-              alignItems: 'center',
-              gap: 4,
+        <Box sx={{ position: 'relative', width: '100%', minHeight: { xs: 320, md: 480 }, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+          {/* Banner Video */}
+          <motion.video
+            initial={{ opacity: 0, scale: 1.05 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{
+              width: '100%',
+              height: 'auto',
+              minHeight: '320px',
+              maxHeight: '480px',
+              objectFit: 'cover',
+              filter: 'brightness(0.7)',
+              display: 'block',
             }}
           >
-            {/* VIDEO */}
-            <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', height:'400' }}>
-              <Box className="video-wrapper">
-                <video
-                  width="100%"
-                  height={3000}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source src="/images/videos/videoTrading2.mp4" type="video/mp4" />
-                  Tu navegador no soporta este video.
-                </video>
-              </Box>
+            <source src="/images/videos/videoTrading2.mp4" type="video/mp4" />
+            Tu navegador no soporta este video.
+          </motion.video>
+
+          {/* Texto encima del video */}
+          <motion.div
+            initial={{ opacity: 0, y: 60, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ amount: 0.6 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 2,
+              pointerEvents: 'none',
+            }}
+          >
+            <Box
+              sx={{
+                background: 'rgba(18, 30, 48, 0.65)',
+                backdropFilter: 'blur(16px)',
+                borderRadius: 8,
+                px: { xs: 2, md: 4 },
+                py: { xs: 3, md: 4 },
+                boxShadow: '0 8px 32px 0 rgba(0,0,0,0.25)',
+                maxWidth: 420,
+                minWidth: { xs: '90%', sm: 340 },
+                textAlign: 'center',
+                pointerEvents: 'auto',
+                border: '1.5px solid rgba(255,255,255,0.12)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <Typography variant="h2" fontWeight={800} gutterBottom sx={{ fontSize: { xs: '1.6rem', md: '2.2rem' }, color: '#fff', letterSpacing: 1, mb: 1 }}>
+                ¿Quiénes Somos?
+              </Typography>
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true, amount: 0.7 }}
+                transition={{ duration: 0.7, delay: 0.5, ease: 'circOut' }}
+                style={{
+                  height: '4px',
+                  width: '70px',
+                  margin: '0 auto 18px',
+                  background: 'linear-gradient(90deg, #ff7b47, #5f2eea, #42a5f5, #00e0d3)',
+                  borderRadius: '4px',
+                  transformOrigin: 'left',
+                  boxShadow: '0 0 8px 2px rgba(95,46,234,0.18)',
+                }}
+              />
+              <Typography variant="h6" sx={{ fontSize: { xs: '1rem', md: '1.08rem' }, lineHeight: 1.6, color: '#fff', fontWeight: 400, mb: 0 }}>
+                ZYPHER nació con la visión democratizar el acceso a tecnologías avanzadas de trading.<br /><br />
+                Combinamos expertos financieros con desarrolladores de alto nivel para potenciar tu rentabilidad.
+              </Typography>
             </Box>
+          </motion.div>
+        </Box>
+      </section>
 
-   {/* TEXTO */}
-<Box sx={{ flex: 1 }}>
-  <Typography textAlign="center" variant="h2" fontWeight={800} gutterBottom>
-    ¿Quiénes Somos?
+      {/* === TECNOLOGÍA DE VANGUARDIA === */}
+      <section id="tecnologia" style={{ background: '#fff', padding: '80px 0' }}>
+        <Container maxWidth="lg">
+          <Typography variant="h2" fontWeight={800} textAlign="center" sx={{ fontSize: { xs: '2rem', md: '2.6rem' }, mb: 2, color: '#1a1a1a' }}>
+            Tecnología de Vanguardia
+          </Typography>
+          <Typography variant="h6" textAlign="center" sx={{ mb: 7, color: 'rgba(30,32,48,0.7)', fontWeight: 400, maxWidth: 700, mx: 'auto' }}>
+            Nuestra plataforma combina algoritmos avanzados con inteligencia artificial para ofrecerte los mejores resultados.
   </Typography>
-
-  {/* Línea decorativa */}
   <Box
     sx={{
-      height: '6px',
-      width: '80px',
-      margin: '0 auto 24px',
-      background: 'linear-gradient(90deg, #5f2eea, #42a5f5)',
-      borderRadius: '4px',
-    }}
-  />
-
-  <Typography variant="h6" color="text.secondary" sx={{ mb: 4, textAlign:'justify' }}>
-    ZYPHER nació con la visión de democratizar el acceso a tecnologías avanzadas de trading.
-    Nuestro equipo combina expertos financieros con desarrolladores de alto nivel.
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' },
+              gap: { xs: 3, md: 4 },
+              justifyContent: 'center',
+            }}
+          >
+            {/* CARD 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.5 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              style={{ width: '100%' }}
+            >
+              <Box sx={{ bgcolor: '#fff', borderRadius: 4, boxShadow: '0 4px 24px 0 rgba(30,32,48,0.08)', p: 4, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', minHeight: 200, transition: 'box-shadow 0.2s', '&:hover': { boxShadow: '0 8px 32px 0 rgba(30,32,48,0.16)' } }}>
+                <Box sx={{ bgcolor: '#e3f0ff', borderRadius: 2, p: 1.5, mb: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {/* Brain SVG */}
+                  <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path fill="#4285F4" d="M12 2a7 7 0 0 0-7 7v6a7 7 0 0 0 14 0V9a7 7 0 0 0-7-7Zm0 2a5 5 0 0 1 5 5v6a5 5 0 0 1-10 0V9a5 5 0 0 1 5-5Z"/></svg>
+                </Box>
+                <Typography variant="h6" fontWeight={700} sx={{ mb: 1, color: '#1a1a1a' }}>Aprendizaje Automático</Typography>
+                <Typography sx={{ color: '#3a3a3a', fontSize: '1rem', fontWeight: 400 }}>
+                  Nuestros algoritmos aprenden de los mercados en tiempo real, adaptándose a las condiciones cambiantes para optimizar tus operaciones.
+                </Typography>
+              </Box>
+            </motion.div>
+            {/* CARD 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.5 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              style={{ width: '100%' }}
+            >
+              <Box sx={{ bgcolor: '#fff', borderRadius: 4, boxShadow: '0 4px 24px 0 rgba(30,32,48,0.08)', p: 4, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', minHeight: 200, transition: 'box-shadow 0.2s', '&:hover': { boxShadow: '0 8px 32px 0 rgba(30,32,48,0.16)' } }}>
+                <Box sx={{ bgcolor: '#e3f0ff', borderRadius: 2, p: 1.5, mb: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {/* Shield SVG */}
+                  <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path fill="#4285F4" d="M12 2 4 5v6c0 5.25 4.5 9.75 8 11 3.5-1.25 8-5.75 8-11V5l-8-3Z"/></svg>
+                </Box>
+                <Typography variant="h6" fontWeight={700} sx={{ mb: 1, color: '#1a1a1a' }}>Gestión de Riesgos</Typography>
+                <Typography sx={{ color: '#3a3a3a', fontSize: '1rem', fontWeight: 400 }}>
+                  Protección avanzada que limita automáticamente las pérdidas y diversifica las inversiones para minimizar riesgos.
+                </Typography>
+              </Box>
+            </motion.div>
+            {/* CARD 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.5 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              style={{ width: '100%' }}
+            >
+              <Box sx={{ bgcolor: '#fff', borderRadius: 4, boxShadow: '0 4px 24px 0 rgba(30,32,48,0.08)', p: 4, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', minHeight: 200, transition: 'box-shadow 0.2s', '&:hover': { boxShadow: '0 8px 32px 0 rgba(30,32,48,0.16)' } }}>
+                <Box sx={{ bgcolor: '#e3f0ff', borderRadius: 2, p: 1.5, mb: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {/* Lightning SVG */}
+                  <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path fill="#4285F4" d="M13 2v7h5l-6 13v-7H7l6-13Z"/></svg>
+                </Box>
+                <Typography variant="h6" fontWeight={700} sx={{ mb: 1, color: '#1a1a1a' }}>Ejecución Ulrarrápida</Typography>
+                <Typography sx={{ color: '#3a3a3a', fontSize: '1rem', fontWeight: 400 }}>
+                  Latencia ultrabaja para ejecutar operaciones en milisegundos, aprovechando cada oportunidad del mercado.
+                </Typography>
+              </Box>
+            </motion.div>
+            {/* CARD 4 */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.5 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              style={{ width: '100%' }}
+            >
+              <Box sx={{ bgcolor: '#fff', borderRadius: 4, boxShadow: '0 4px 24px 0 rgba(30,32,48,0.08)', p: 4, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', minHeight: 200, transition: 'box-shadow 0.2s', '&:hover': { boxShadow: '0 8px 32px 0 rgba(30,32,48,0.16)' } }}>
+                <Box sx={{ bgcolor: '#e3f0ff', borderRadius: 2, p: 1.5, mb: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {/* Chart SVG */}
+                  <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path fill="#4285F4" d="M5 21V9h4v12H5Zm5 0V3h4v18h-4Zm5 0v-6h4v6h-4Z"/></svg>
+                </Box>
+                <Typography variant="h6" fontWeight={700} sx={{ mb: 1, color: '#1a1a1a' }}>Análisis Predictivo</Typography>
+                <Typography sx={{ color: '#3a3a3a', fontSize: '1rem', fontWeight: 400 }}>
+                  Identificación de patrones y tendencias antes de que ocurran, dándote una ventaja competitiva en el mercado.
+                </Typography>
+              </Box>
+            </motion.div>
+            {/* CARD 5 */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.5 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              style={{ width: '100%' }}
+            >
+              <Box sx={{ bgcolor: '#fff', borderRadius: 4, boxShadow: '0 4px 24px 0 rgba(30,32,48,0.08)', p: 4, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', minHeight: 200, transition: 'box-shadow 0.2s', '&:hover': { boxShadow: '0 8px 32px 0 rgba(30,32,48,0.16)' } }}>
+                <Box sx={{ bgcolor: '#e3f0ff', borderRadius: 2, p: 1.5, mb: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {/* Globe SVG */}
+                  <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#4285F4" opacity="0.2"/><path fill="#4285F4" d="M12 2a10 10 0 0 0 0 20V2Zm0 0a10 10 0 0 1 0 20V2Z"/></svg>
+                </Box>
+                <Typography variant="h6" fontWeight={700} sx={{ mb: 1, color: '#1a1a1a' }}>Múltiples Mercados</Typography>
+                <Typography sx={{ color: '#3a3a3a', fontSize: '1rem', fontWeight: 400 }}>
+                  Acceso a Forex, Criptomonedas, Índices y Materias Primas desde una sola plataforma integrada.
+                </Typography>
+              </Box>
+            </motion.div>
+            {/* CARD 6 */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.5 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
+              style={{ width: '100%' }}
+            >
+              <Box sx={{ bgcolor: '#fff', borderRadius: 4, boxShadow: '0 4px 24px 0 rgba(30,32,48,0.08)', p: 4, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', minHeight: 200, transition: 'box-shadow 0.2s', '&:hover': { boxShadow: '0 8px 32px 0 rgba(30,32,48,0.16)' } }}>
+                <Box sx={{ bgcolor: '#e3f0ff', borderRadius: 2, p: 1.5, mb: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {/* Device SVG */}
+                  <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" fill="#4285F4" opacity="0.2"/><rect x="7" y="7" width="10" height="10" rx="2" fill="#4285F4"/></svg>
+                </Box>
+                <Typography variant="h6" fontWeight={700} sx={{ mb: 1, color: '#1a1a1a' }}>Control Total</Typography>
+                <Typography sx={{ color: '#3a3a3a', fontSize: '1rem', fontWeight: 400 }}>
+                  Supervisa y ajusta tu estrategia desde cualquier dispositivo, en cualquier momento y lugar.
   </Typography>
 </Box>
-
-
+            </motion.div>
           </Box>
         </Container>
       </section>
@@ -178,48 +347,127 @@ export default function Home() {
           overflow: 'hidden'
         }}
       >
-        <AnimatedIconsBackground />
+        {/* <AnimatedIconsBackground /> */}
 
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Typography marginBottom={9} variant="h2" fontWeight={800} textAlign="center">
             Opiniones de nuestros usuarios
           </Typography>
 
-          <MotionContainer
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '2rem',
+          <Box
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr 1fr' },
+              gap: { xs: 4, md: 6 },
               justifyContent: 'center',
+              alignItems: 'stretch',
+              width: '100%',
+              mb: 4,
             }}
           >
             <TestimonialCard Imagen={Persona1} texto="Zypher me ha ayudado a automatizar mis operaciones en futuros de Binance. Los bots son rápidos y precisos, ahora tengo más tiempo libre sin preocuparme por el mercado..." nombre="Luis Ramírez" delay={0} />
             <TestimonialCard Imagen={Persona2} texto="Antes tenía miedo de operar en futuros, pero gracias a Zypher y su interfaz intuitiva, pude empezar sin complicaciones. Excelente herramienta para traders de todos los niveles..." nombre="María González" delay={200} />
             <TestimonialCard Imagen={Persona3} texto="La gestión de portafolio en Zypher es simplemente increíble. Los algoritmos analizan el mercado en tiempo real y ejecutan órdenes que han mejorado mi rentabilidad de forma consistente..." nombre="Carlos Méndez" delay={400} />
-          </MotionContainer>
+          </Box>
         </Container>
       </section>
 
 
       {/* === PREGUNTAS FRECUENTES === */}
-      <section id="preguntas" style={{ scrollMarginTop: '80px', padding: '100px 20px', backgroundColor: '#F9FAFB' }}>
-        <Container maxWidth="md">
-          <Typography variant="h2" fontWeight={800} gutterBottom textAlign="center">Preguntas Frecuentes</Typography>
-          {faqs.map((faq, index) => (
-            <Box key={index} sx={{ mb: 2, borderRadius: 2, overflow: 'hidden', boxShadow: 2 }}>
-              <Box component="button" onClick={() => toggle(index)} sx={{
-                width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2,
-                background: 'linear-gradient(90deg, #42a5f5, #1976d2)', color: '#fff', fontWeight: 600, border: 'none', cursor: 'pointer'
-              }}>
-                {faq.question}
-                <Typography variant="h5">{activeIndex === index ? '-' : '+'}</Typography>
-              </Box>
-              {activeIndex === index && <Box sx={{ p: 2, backgroundColor: '#fff', color: '#24292F' }}>{faq.answer}</Box>}
-            </Box>
-          ))}
+      <section id="preguntas" style={{ scrollMarginTop: '80px', padding: '80px 0', backgroundColor: '#fff' }}>
+        <Container maxWidth="sm">
+          <Typography variant="h2" fontWeight={800} gutterBottom textAlign="center" sx={{ mb: 1, color: '#23272F', fontSize: { xs: '2rem', md: '2.4rem' } }}>
+            Preguntas Frecuentes
+          </Typography>
+          <Typography variant="h6" textAlign="center" sx={{ mb: 5, color: '#6B7280', fontWeight: 400, fontSize: { xs: '1rem', md: '1.15rem' } }}>
+            Todo lo que necesitas saber sobre Zypher
+          </Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, alignItems: 'center', width: '100%' }}>
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ amount: 0.4 }}
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                style={{ width: '100%' }}
+              >
+                <Box
+                  sx={{
+                    borderRadius: 4.5,
+                    boxShadow: '0 4px 18px 0 rgba(30,32,48,0.10)',
+                    bgcolor: '#fff',
+                    overflow: 'hidden',
+                    width: '100%',
+                    maxWidth: 700,
+                    mx: 'auto',
+                  }}
+                >
+                  <Box
+                    component="button"
+                    onClick={() => toggle(index)}
+                    sx={{
+                      width: '100%',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      p: { xs: 2.5, md: 3 },
+                      background: 'none',
+                      color: '#23272F',
+                      fontWeight: 700,
+                      fontSize: { xs: '1.13rem', md: '1.18rem' },
+                      border: 'none',
+                      cursor: 'pointer',
+                      outline: 'none',
+                      borderRadius: 4.5,
+                      transition: 'background 0.2s',
+                      textAlign: 'left',
+                      '&:hover': { background: '#f3f6fa' },
+                    }}
+                  >
+                    <span style={{ flex: 1 }}>{faq.question}</span>
+                    <motion.span
+                      animate={{ rotate: activeIndex === index ? 45 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      style={{ display: 'inline-block', marginLeft: 18, fontSize: 32, color: '#2563eb', fontWeight: 700, lineHeight: 1 }}
+                    >
+                      +
+                    </motion.span>
+                  </Box>
+                  <AnimatePresence initial={false}>
+                    {activeIndex === index && (
+                      <motion.div
+                        key="content"
+                        initial={{ height: 0, opacity: 0, y: -10 }}
+                        animate={{ height: 'auto', opacity: 1, y: 0 }}
+                        exit={{ height: 0, opacity: 0, y: -10 }}
+                        transition={{ duration: 0.35, ease: 'easeInOut' }}
+                        style={{ overflow: 'hidden' }}
+                      >
+                        <Box sx={{
+                          px: { xs: 3, md: 4 },
+                          pb: 2.8,
+                          pt: 0.5,
+                          color: '#444',
+                          fontSize: { xs: '1.13rem', md: '1.18rem' },
+                          textAlign: 'left',
+                          fontWeight: 400,
+                          letterSpacing: 0.01,
+                          lineHeight: 1.7,
+                          borderBottomLeftRadius: 28,
+                          borderBottomRightRadius: 28,
+                          background: '#fff',
+                          boxShadow: '0 2px 12px 0 rgba(30,32,48,0.04)',
+                        }}>
+                          {faq.answer}
+                        </Box>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </Box>
+              </motion.div>
+            ))}
+          </Box>
         </Container>
       </section>
 
