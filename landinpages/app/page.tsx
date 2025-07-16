@@ -113,28 +113,32 @@ export default function Home() {
       >
         <Box sx={{ position: 'relative', width: '100%', minHeight: { xs: 320, md: 480 }, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
           {/* Banner Video */}
-          <motion.video
-            initial={{ opacity: 0, scale: 1.05 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+          <motion.div
+            initial={{ opacity: 0, y: 60, scale: 1.05 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 1, ease: 'easeOut' }}
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              width: '100%',
-              height: 'auto',
-              minHeight: '320px',
-              maxHeight: '480px',
-              objectFit: 'cover',
-              filter: 'brightness(0.7)',
-              display: 'block',
-            }}
+            style={{ width: '100%' }}
           >
-            <source src="/images/videos/videoTrading2.mp4" type="video/mp4" />
-            Tu navegador no soporta este video.
-          </motion.video>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{
+                width: '100%',
+                height: 'auto',
+                minHeight: '320px',
+                maxHeight: '480px',
+                objectFit: 'cover',
+                filter: 'brightness(0.7)',
+                display: 'block',
+              }}
+            >
+              <source src="/images/videos/videoTrading2.mp4" type="video/mp4" />
+              Tu navegador no soporta este video.
+            </video>
+          </motion.div>
 
           {/* Texto encima del video */}
           <motion.div
@@ -174,9 +178,16 @@ export default function Home() {
                 alignItems: 'center',
               }}
             >
-              <Typography variant="h2" fontWeight={800} gutterBottom sx={{ fontSize: { xs: '1.6rem', md: '2.2rem' }, color: '#fff', letterSpacing: 1, mb: 1 }}>
-                ¿Quiénes Somos?
-              </Typography>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ amount: 0.4 }}
+                transition={{ duration: 0.7 }}
+              >
+                <Typography textAlign="center" variant="h2" fontWeight={800} gutterBottom sx={{ fontSize: { xs: '2.2rem', md: '2.8rem' }, color: '#fff' }}>
+                  ¿Quiénes Somos?
+                </Typography>
+              </motion.div>
               <motion.div
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
@@ -204,12 +215,26 @@ export default function Home() {
       {/* === TECNOLOGÍA DE VANGUARDIA === */}
       <section id="tecnologia" style={{ background: '#fff', padding: '80px 0' }}>
         <Container maxWidth="lg">
-          <Typography variant="h2" fontWeight={800} textAlign="center" sx={{ fontSize: { xs: '2rem', md: '2.6rem' }, mb: 2, color: '#1a1a1a' }}>
-            Tecnología de Vanguardia
-          </Typography>
-          <Typography variant="h6" textAlign="center" sx={{ mb: 7, color: 'rgba(30,32,48,0.7)', fontWeight: 400, maxWidth: 700, mx: 'auto' }}>
-            Nuestra plataforma combina algoritmos avanzados con inteligencia artificial para ofrecerte los mejores resultados.
-  </Typography>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.7 }}
+          >
+            <Typography variant="h2" fontWeight={800} textAlign="center" sx={{ fontSize: { xs: '2rem', md: '2.6rem' }, mb: 2, color: '#1a1a1a' }}>
+              Tecnología de Vanguardia
+            </Typography>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            <Typography variant="h6" textAlign="center" sx={{ mb: 7, color: 'rgba(30,32,48,0.7)', fontWeight: 400, maxWidth: 700, mx: 'auto' }}>
+              Nuestra plataforma combina algoritmos avanzados con inteligencia artificial para ofrecerte los mejores resultados.
+            </Typography>
+          </motion.div>
   <Box
     sx={{
               display: 'grid',
@@ -350,9 +375,16 @@ export default function Home() {
         {/* <AnimatedIconsBackground /> */}
 
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-          <Typography marginBottom={9} variant="h2" fontWeight={800} textAlign="center">
-            Opiniones de nuestros usuarios
-          </Typography>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.7 }}
+          >
+            <Typography marginBottom={9} variant="h2" fontWeight={800} textAlign="center">
+              Opiniones de nuestros usuarios
+            </Typography>
+          </motion.div>
 
           <Box
             sx={{
@@ -376,12 +408,26 @@ export default function Home() {
       {/* === PLANES === */}
       <section id="planes" style={{ background: '#fff', padding: '80px 0 60px 0' }}>
         <Container maxWidth="lg">
-          <Typography variant="h2" fontWeight={800} textAlign="center" sx={{ fontSize: { xs: '2.5rem', md: '2.9rem' }, mb: 1, color: '#23272F', letterSpacing: -1, fontFamily: 'inherit' }}>
-            Planes a tu Medida
-          </Typography>
-          <Typography variant="h6" textAlign="center" sx={{ mb: 7, color: '#6B7280', fontWeight: 400, fontSize: { xs: '1.13rem', md: '1.22rem' }, fontFamily: 'inherit' }}>
-            Elige el plan que mejor se adapte a tus necesidades de inversión
-          </Typography>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.7 }}
+          >
+            <Typography variant="h2" fontWeight={800} textAlign="center" sx={{ fontSize: { xs: '2.5rem', md: '2.9rem' }, mb: 1, color: '#23272F', letterSpacing: -1 }}>
+              Planes a tu Medida
+            </Typography>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            <Typography variant="h6" textAlign="center" sx={{ mb: 7, color: '#6B7280', fontWeight: 400, fontSize: { xs: '1.13rem', md: '1.22rem' }, fontFamily: 'inherit' }}>
+              Elige el plan que mejor se adapte a tus necesidades de inversión
+            </Typography>
+          </motion.div>
           <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 7, md: 6 }, justifyContent: 'center', alignItems: 'stretch', mb: 3 }}>
             {/* Básico */}
             <motion.div
@@ -475,12 +521,26 @@ export default function Home() {
       {/* === PREGUNTAS FRECUENTES === */}
       <section id="preguntas" style={{ scrollMarginTop: '80px', padding: '80px 0', backgroundColor: '#fff' }}>
         <Container maxWidth="sm">
-          <Typography variant="h2" fontWeight={800} gutterBottom textAlign="center" sx={{ mb: 1, color: '#23272F', fontSize: { xs: '2rem', md: '2.4rem' } }}>
-            Preguntas Frecuentes
-          </Typography>
-          <Typography variant="h6" textAlign="center" sx={{ mb: 5, color: '#6B7280', fontWeight: 400, fontSize: { xs: '1rem', md: '1.15rem' } }}>
-            Todo lo que necesitas saber sobre Zypher
-          </Typography>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.7 }}
+          >
+            <Typography variant="h2" fontWeight={800} gutterBottom textAlign="center" sx={{ mb: 1, color: '#23272F', fontSize: { xs: '2rem', md: '2.4rem' } }}>
+              Preguntas Frecuentes
+            </Typography>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
+            <Typography variant="h6" textAlign="center" sx={{ mb: 5, color: '#6B7280', fontWeight: 400, fontSize: { xs: '1rem', md: '1.15rem' } }}>
+              Todo lo que necesitas saber sobre Zypher
+            </Typography>
+          </motion.div>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, alignItems: 'center', width: '100%' }}>
             {faqs.map((faq, index) => (
               <motion.div
@@ -571,16 +631,46 @@ export default function Home() {
       </section>
 
 
-
-      {/* === RECURSO === */}
-      <section id="recurso" style={{ scrollMarginTop: '80px', padding: '100px 20px', backgroundColor: '#f0f0f0' }}>
-        <Container maxWidth="md">
-          <Typography variant="h2" fontWeight={800} gutterBottom>Recursos</Typography>
-          <Typography variant="h6" color="text.secondary" sx={{ mb: 4 }}>
-            Explora nuestros tutoriales, documentación técnica, blogs y casos de éxito para potenciar tu experiencia con ZYPHER.
-          </Typography>
-        </Container>
-      </section>
+      {/* === FOOTER === */}
+      <footer style={{ background: '#2563eb', color: '#fff', padding: '48px 0 24px 0', marginTop: 0, width: '100vw' }}>
+        <Box sx={{ width: '100%' }}>
+          <Box sx={{ maxWidth: '1600px', mx: 'auto', px: { xs: 3, sm: 6, md: 10 } }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'flex-start', md: 'center' }, justifyContent: 'space-between', gap: 4 }}>
+              <Box sx={{ mb: { xs: 3, md: 0 } }}>
+                <Typography variant="h5" fontWeight={800} sx={{ letterSpacing: 1, mb: 1, color: '#fff' }}>
+                  ZYPHER
+                </Typography>
+                <Typography sx={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.08rem', maxWidth: 340 }}>
+                  Automatiza tu trading con tecnología de vanguardia. Bots, gestión de portafolio y ejecución algorítmica en una sola plataforma.
+                </Typography>
+              </Box>
+              <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: { xs: 2, sm: 6 } }}>
+                <Box>
+                  <Typography fontWeight={700} sx={{ mb: 1, color: '#fff', fontSize: '1.08rem' }}>Enlaces</Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                    <a href="#inicio" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>Inicio</a>
+                    <a href="#nosotros" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>¿Quiénes somos?</a>
+                    <a href="#tecnologia" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>Tecnología</a>
+                    <a href="#plataforma" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>Opiniones</a>
+                    <a href="#planes" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>Planes</a>
+                    <a href="#preguntas" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>FAQ</a>
+                  </Box>
+                </Box>
+                <Box>
+                  <Typography fontWeight={700} sx={{ mb: 1, color: '#fff', fontSize: '1.08rem' }}>Contacto</Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+                    <a href="mailto:info@zypher.com" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>info@zypher.com</a>
+                    <span style={{ color: '#fff', opacity: 0.9, fontSize: '1rem' }}>+34 600 123 456</span>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+            <Box sx={{ textAlign: 'center', mt: 5, color: 'rgba(255,255,255,0.7)', fontSize: '0.98rem' }}>
+              © {new Date().getFullYear()} Zypher. Todos los derechos reservados.
+            </Box>
+          </Box>
+        </Box>
+      </footer>
     </main>
   );
 }
