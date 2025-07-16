@@ -47,7 +47,7 @@ export default function Home() {
   };
 
   return (
-    <main style={{ width: '100%', minHeight: '100vh', background: '#ffffff', position: 'relative', overflow: 'hidden' }}>
+    <main style={{ width: '100%', minHeight: '100vh', background: '#ffffff', position: 'relative', overflowX: 'visible' }}>
       {/* === INICIO === */}
       <section id="inicio" style={{ scrollMarginTop: '80px' }}>
         <Stack direction={{ xs: 'column', lg: 'row' }} spacing={0} sx={{ minHeight: '100vh', width: '100%' }}>
@@ -632,7 +632,7 @@ export default function Home() {
 
 
       {/* === FOOTER === */}
-      <footer style={{ background: '#2563eb', color: '#fff', padding: '48px 0 24px 0', marginTop: 0, width: '100vw' }}>
+      <footer style={{ background: '#2563eb', color: '#fff', padding: '48px 0 24px 0', marginTop: 0, width: '100vw', position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
         <Box sx={{ width: '100%' }}>
           <Box sx={{ maxWidth: '1600px', mx: 'auto', px: { xs: 3, sm: 6, md: 10 } }}>
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'flex-start', md: 'center' }, justifyContent: 'space-between', gap: 4 }}>
