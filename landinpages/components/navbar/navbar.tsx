@@ -8,6 +8,7 @@ export default function Navbar() {
   const menuItems = [
     { text: 'Inicio', href: '#inicio' },
     { text: 'Reseñas', href: '#plataforma' },
+    { text: 'Planes', href: '#planes' },
     { text: 'Preguntas Frecuentes', href: '#preguntas' },
     { text: 'Sobre Nosotros', href: '#nosotros' },
   ];
