@@ -186,7 +186,10 @@ const FloatingCoins = () => {
                             }
                         },
                     }}
-                    onMouseEnter={() => handleCoinHover(coin.id)}
+                    onClick={() => {
+                        setSelectedCoin(coin.id);
+                        setModalInfo(cryptoInfo[coin.id as keyof typeof cryptoInfo]);
+                    }}
                 >
                     <Box
                         sx={{
@@ -194,10 +197,6 @@ const FloatingCoins = () => {
                             transform: 'rotateY(-90deg)',
                             transition: 'transform 0.3s ease',
                             opacity: selectedCoin === coin.id ? 1 : 0.8,
-                            '&:hover': {
-                                transform: 'rotateY(-90deg) scale(1.2)',
-                                opacity: 1,
-                            },
                         }}
                     >
                         {coin.icon}
