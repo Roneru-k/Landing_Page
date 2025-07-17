@@ -120,11 +120,11 @@ export default function Home() {
             transition={{ duration: 1, ease: 'easeOut' }}
             style={{ width: '100%' }}
           >
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
               style={{
                 width: '100%',
                 height: 'auto',
@@ -134,10 +134,10 @@ export default function Home() {
                 filter: 'brightness(0.7)',
                 display: 'block',
               }}
-            >
-              <source src="/images/videos/videoTrading2.mp4" type="video/mp4" />
-              Tu navegador no soporta este video.
-            </video>
+                >
+                  <source src="/images/videos/videoTrading2.mp4" type="video/mp4" />
+                  Tu navegador no soporta este video.
+                </video>
           </motion.div>
 
           {/* Texto encima del video */}
@@ -233,7 +233,7 @@ export default function Home() {
           >
             <Typography variant="h6" textAlign="center" sx={{ mb: 7, color: 'rgba(30,32,48,0.7)', fontWeight: 400, maxWidth: 700, mx: 'auto' }}>
               Nuestra plataforma combina algoritmos avanzados con inteligencia artificial para ofrecerte los mejores resultados.
-            </Typography>
+  </Typography>
           </motion.div>
   <Box
     sx={{
@@ -381,9 +381,9 @@ export default function Home() {
             viewport={{ amount: 0.4 }}
             transition={{ duration: 0.7 }}
           >
-            <Typography marginBottom={9} variant="h2" fontWeight={800} textAlign="center">
-              Opiniones de nuestros usuarios
-            </Typography>
+          <Typography marginBottom={9} variant="h2" fontWeight={800} textAlign="center">
+            Opiniones de nuestros usuarios
+          </Typography>
           </motion.div>
 
           <Box
@@ -443,7 +443,7 @@ export default function Home() {
                   <Typography sx={{ color: '#6B7280', fontWeight: 400, mb: 2, fontSize: '1.09rem', fontFamily: 'inherit' }}>Ideal para comenzar</Typography>
                   <Typography className="poppins" sx={{ color: '#2563eb', fontWeight: 800, fontSize: '2.4rem', mb: 0.5, letterSpacing: -1 }}>$49<span style={{ fontWeight: 400, fontSize: '1.1rem', color: '#6B7280' }}>/mes</span></Typography>
                   <Typography sx={{ color: '#6B7280', fontSize: '1.15rem', mb: 2.5, textAlign: 'left', fontFamily: 'inherit' }}>Acceso a estrategias básicas y mercados limitados</Typography>
-                  <Button className="poppins" variant="contained" sx={{ bgcolor: '#2563eb', color: '#fff', borderRadius: 2.5, fontWeight: 800, fontSize: '1.09rem', py: 1.3, px: 3, mb: 2, boxShadow: 'none', textTransform: 'uppercase', letterSpacing: 1, fontFamily: 'inherit', '&:hover': { bgcolor: '#1749b1' } }}>Seleccionar plan</Button>
+                  <Button className="poppins" variant="contained" sx={{ bgcolor: '#2563eb', color: '#fff', borderRadius: 2.5, fontWeight: 800, fontSize: '1.09rem', py: 1.3, px: 3, mb: 2, boxShadow: 'none', textTransform: 'uppercase', letterSpacing: 1, fontFamily: 'inherit', transition: 'all 0.3s ease', '&:hover': { bgcolor: '#1749b1', transform: 'translateY(-2px)', boxShadow: '0 4px 12px rgba(37,99,235,0.3)' } }}>Seleccionar plan</Button>
                 </Box>
                 <Box sx={{ width: '100%', flex: 1, py: 2.5, px: 4, display: 'flex', flexDirection: 'column', gap: 1.5, justifyContent: 'center', borderBottomLeftRadius: 24, borderBottomRightRadius: 24 }}>
                   <FeatureItem checked={true} color="#23272F">3 estrategias básicas</FeatureItem>
@@ -471,7 +471,7 @@ export default function Home() {
                   <Typography sx={{ color: '#6B7280', fontWeight: 400, mb: 2, fontSize: '1.09rem', fontFamily: 'inherit' }}>Para traders serios</Typography>
                   <Typography className="poppins" sx={{ color: '#2563eb', fontWeight: 800, fontSize: '2.4rem', mb: 0.5, letterSpacing: -1 }}>$99<span style={{ fontWeight: 400, fontSize: '1.1rem', color: '#6B7280' }}>/mes</span></Typography>
                   <Typography sx={{ color: '#6B7280', fontSize: '1.15rem', mb: 2.5, textAlign: 'left', fontFamily: 'inherit' }}>Acceso completo a todas las estrategias y mercados</Typography>
-                  <Button className="poppins" variant="contained" sx={{ bgcolor: '#2563eb', color: '#fff', borderRadius: 2.5, fontWeight: 800, fontSize: '1.09rem', py: 1.3, px: 3, mb: 2, boxShadow: 'none', textTransform: 'uppercase', letterSpacing: 1, fontFamily: 'inherit', '&:hover': { bgcolor: '#1749b1' } }}>Seleccionar plan</Button>
+                  <Button className="poppins" variant="contained" sx={{ bgcolor: '#2563eb', color: '#fff', borderRadius: 2.5, fontWeight: 800, fontSize: '1.09rem', py: 1.3, px: 3, mb: 2, boxShadow: 'none', textTransform: 'uppercase', letterSpacing: 1, fontFamily: 'inherit', transition: 'all 0.3s ease', '&:hover': { bgcolor: '#1749b1', transform: 'translateY(-2px)', boxShadow: '0 4px 12px rgba(37,99,235,0.3)' } }}>Seleccionar plan</Button>
                 </Box>
                 <Box sx={{ width: '100%', flex: 1, py: 2.5, px: 4, display: 'flex', flexDirection: 'column', gap: 1.5, justifyContent: 'center', borderBottomLeftRadius: 24, borderBottomRightRadius: 24 }}>
                   <FeatureItem checked={true} color="#23272F">15+ estrategias avanzadas</FeatureItem>
@@ -496,7 +496,7 @@ export default function Home() {
                   <Typography sx={{ color: '#6B7280', fontWeight: 400, mb: 2, fontSize: '1.09rem', fontFamily: 'inherit' }}>Para grandes capitales</Typography>
                   <Typography className="poppins" sx={{ color: '#2563eb', fontWeight: 800, fontSize: '2.4rem', mb: 0.5, letterSpacing: -1 }}>$299<span style={{ fontWeight: 400, fontSize: '1.1rem', color: '#6B7280' }}>/mes</span></Typography>
                   <Typography sx={{ color: '#6B7280', fontSize: '1.15rem', mb: 2.5, textAlign: 'left', fontFamily: 'inherit' }}>Solución personalizada para inversores institucionales</Typography>
-                  <Button className="poppins" variant="contained" sx={{ bgcolor: '#2563eb', color: '#fff', borderRadius: 2.5, fontWeight: 800, fontSize: '1.09rem', py: 1.3, px: 3, mb: 2, boxShadow: 'none', textTransform: 'uppercase', letterSpacing: 1, fontFamily: 'inherit', '&:hover': { bgcolor: '#1749b1' } }}>Contactar ventas</Button>
+                  <Button className="poppins" variant="contained" sx={{ bgcolor: '#2563eb', color: '#fff', borderRadius: 2.5, fontWeight: 800, fontSize: '1.09rem', py: 1.3, px: 3, mb: 2, boxShadow: 'none', textTransform: 'uppercase', letterSpacing: 1, fontFamily: 'inherit', transition: 'all 0.3s ease', '&:hover': { bgcolor: '#1749b1', transform: 'translateY(-2px)', boxShadow: '0 4px 12px rgba(37,99,235,0.3)' } }}>Contactar ventas</Button>
                 </Box>
                 <Box sx={{ width: '100%', flex: 1, py: 2.5, px: 4, display: 'flex', flexDirection: 'column', gap: 1.5, justifyContent: 'center', borderBottomLeftRadius: 24, borderBottomRightRadius: 24 }}>
                   <FeatureItem checked={true} color="#23272F">Estrategias personalizadas</FeatureItem>
@@ -510,10 +510,10 @@ export default function Home() {
           </Box>
           <Box sx={{ textAlign: 'center', mt: 5 }}>
             <Typography sx={{ color: '#6B7280', fontSize: '1.18rem', mb: 2, fontFamily: 'inherit' }}>¿Necesitas algo más personalizado?</Typography>
-            <Button className="poppins" variant="outlined" sx={{ borderColor: '#2563eb', color: '#2563eb', borderRadius: 2.5, fontWeight: 800, fontSize: '1.09rem', px: 3, py: 1.3, textTransform: 'uppercase', letterSpacing: 1, fontFamily: 'inherit', '&:hover': { bgcolor: '#2563eb', color: '#fff', borderColor: '#2563eb' } }}>
+            <Button className="poppins" variant="outlined" sx={{ borderColor: '#2563eb', color: '#2563eb', borderRadius: 2.5, fontWeight: 800, fontSize: '1.09rem', px: 3, py: 1.3, textTransform: 'uppercase', letterSpacing: 1, fontFamily: 'inherit', transition: 'all 0.3s ease', '&:hover': { bgcolor: '#2563eb', color: '#fff', borderColor: '#2563eb', transform: 'translateY(-2px)', boxShadow: '0 4px 12px rgba(37,99,235,0.3)' } }}>
               Solicitar plan personalizado
             </Button>
-          </Box>
+            </Box>
         </Container>
       </section>
 
@@ -539,7 +539,7 @@ export default function Home() {
           >
             <Typography variant="h6" textAlign="center" sx={{ mb: 5, color: '#6B7280', fontWeight: 400, fontSize: { xs: '1rem', md: '1.15rem' } }}>
               Todo lo que necesitas saber sobre Zypher
-            </Typography>
+          </Typography>
           </motion.div>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, alignItems: 'center', width: '100%' }}>
             {faqs.map((faq, index) => (
@@ -632,35 +632,143 @@ export default function Home() {
 
 
       {/* === FOOTER === */}
-      <footer style={{ background: '#2563eb', color: '#fff', padding: '48px 0 24px 0', marginTop: 0, width: '100vw', position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
-        <Box sx={{ width: '100%' }}>
-          <Box sx={{ maxWidth: '1600px', mx: 'auto', px: { xs: 3, sm: 6, md: 10 } }}>
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'flex-start', md: 'center' }, justifyContent: 'space-between', gap: 4 }}>
-              <Box sx={{ mb: { xs: 3, md: 0 } }}>
-                <Typography variant="h5" fontWeight={800} sx={{ letterSpacing: 1, mb: 1, color: '#fff' }}>
+      <footer style={{ 
+        background: '#2563eb', 
+        color: '#fff', 
+        padding: '48px 0 24px 0', 
+        marginTop: 0, 
+        width: '100vw', 
+        marginLeft: 'calc(-50vw + 50%)',
+        fontFamily: 'Poppins, Arial, sans-serif', 
+        borderTop: '2.5px solid #e0e7ef',
+        boxSizing: 'border-box'
+      }}>
+        <Box sx={{ 
+          width: '100%', 
+          maxWidth: '100vw',
+          overflow: 'hidden'
+        }}>
+          <Box sx={{ 
+            maxWidth: '1600px', 
+            mx: 'auto', 
+            px: { xs: 3, sm: 6, md: 10 }, 
+            fontFamily: 'Poppins, Arial, sans-serif',
+            width: '100%',
+            boxSizing: 'border-box'
+          }}>
+            <Box sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', lg: 'row' },
+              alignItems: { xs: 'flex-start', lg: 'flex-start' },
+              justifyContent: 'space-between',
+              gap: { xs: 6, lg: 8 },
+              width: '100%',
+              py: 2
+            }}>
+              {/* ZYPHER Brand */}
+              <Box sx={{ 
+                flex: { lg: 1 }, 
+                minWidth: { xs: '100%', lg: 220 }, 
+                mb: { xs: 4, lg: 0 },
+                maxWidth: { xs: '100%', lg: 'none' }
+              }}>
+                <Typography fontWeight={800} sx={{ fontSize: { xs: '1.5rem', md: '2.1rem' }, letterSpacing: 2, mb: 1, color: '#fff', textTransform: 'uppercase' }}>
                   ZYPHER
                 </Typography>
-                <Typography sx={{ color: 'rgba(255,255,255,0.85)', fontSize: '1.08rem', maxWidth: 340 }}>
+                <Typography sx={{ color: 'rgba(255,255,255,0.85)', fontSize: { xs: '1.05rem', md: '1.13rem' }, maxWidth: 340, lineHeight: 1.7 }}>
                   Automatiza tu trading con tecnología de vanguardia. Bots, gestión de portafolio y ejecución algorítmica en una sola plataforma.
                 </Typography>
               </Box>
-              <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: { xs: 2, sm: 6 } }}>
-                <Box>
-                  <Typography fontWeight={700} sx={{ mb: 1, color: '#fff', fontSize: '1.08rem' }}>Enlaces</Typography>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
-                    <a href="#inicio" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>Inicio</a>
-                    <a href="#nosotros" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>¿Quiénes somos?</a>
-                    <a href="#tecnologia" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>Tecnología</a>
-                    <a href="#plataforma" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>Opiniones</a>
-                    <a href="#planes" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>Planes</a>
-                    <a href="#preguntas" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>FAQ</a>
+              {/* Enlaces y Contacto */}
+              <Box sx={{ 
+                display: 'flex', 
+                flex: { lg: 1 },
+                flexDirection: { xs: 'column', sm: 'row' }, 
+                gap: { xs: 4, sm: 6, lg: 8 }, 
+                justifyContent: { sm: 'space-between', lg: 'flex-end' }, 
+                alignItems: { xs: 'flex-start', sm: 'flex-start' },
+                width: { xs: '100%', lg: 'auto' }
+              }}>
+                {/* Enlaces */}
+                <Box sx={{ minWidth: { xs: '100%', sm: 120 } }}>
+                  <Typography fontWeight={800} sx={{ mb: 1.5, color: '#fff', fontSize: { xs: '1.13rem', md: '1.22rem' }, textTransform: 'uppercase', letterSpacing: 1.2 }}>Enlaces</Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                    <a href="#inicio" style={{ color: '#fff', textDecoration: 'none', opacity: 0.93, fontSize: '1.08rem', fontWeight: 400, letterSpacing: 0.2 }}>Inicio</a>
+                    <a href="#nosotros" style={{ color: '#fff', textDecoration: 'none', opacity: 0.93, fontSize: '1.08rem', fontWeight: 400, letterSpacing: 0.2 }}>¿Quiénes somos?</a>
+                    <a href="#tecnologia" style={{ color: '#fff', textDecoration: 'none', opacity: 0.93, fontSize: '1.08rem', fontWeight: 400, letterSpacing: 0.2 }}>Tecnología</a>
+                    <a href="#plataforma" style={{ color: '#fff', textDecoration: 'none', opacity: 0.93, fontSize: '1.08rem', fontWeight: 400, letterSpacing: 0.2 }}>Opiniones</a>
+                    <a href="#planes" style={{ color: '#fff', textDecoration: 'none', opacity: 0.93, fontSize: '1.08rem', fontWeight: 400, letterSpacing: 0.2 }}>Planes</a>
+                    <a href="#preguntas" style={{ color: '#fff', textDecoration: 'none', opacity: 0.93, fontSize: '1.08rem', fontWeight: 400, letterSpacing: 0.2 }}>FAQ</a>
                   </Box>
                 </Box>
-                <Box>
-                  <Typography fontWeight={700} sx={{ mb: 1, color: '#fff', fontSize: '1.08rem' }}>Contacto</Typography>
-                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
-                    <a href="mailto:info@zypher.com" style={{ color: '#fff', textDecoration: 'none', opacity: 0.9, fontSize: '1rem' }}>info@zypher.com</a>
-                    <span style={{ color: '#fff', opacity: 0.9, fontSize: '1rem' }}>+34 600 123 456</span>
+                {/* Contacto */}
+                <Box sx={{ minWidth: { xs: '100%', sm: 140 } }}>
+                  <Typography fontWeight={800} sx={{ mb: 1.5, color: '#fff', fontSize: { xs: '1.13rem', md: '1.22rem' }, textTransform: 'uppercase', letterSpacing: 1.2 }}>Contacto</Typography>
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                    <a href="mailto:info@zypher.com" style={{ color: '#fff', textDecoration: 'none', opacity: 0.93, fontSize: '1.08rem', fontWeight: 400, letterSpacing: 0.2 }}>info@zypher.com</a>
+                    <span style={{ color: '#fff', opacity: 0.93, fontSize: '1.08rem', fontWeight: 400, letterSpacing: 0.2 }}>+34 600 123 456</span>
+                  </Box>
+                </Box>
+                {/* Redes Sociales */}
+                <Box sx={{ minWidth: { xs: '100%', sm: 100 } }}>
+                  <Typography fontWeight={800} sx={{ mb: 1.5, color: '#fff', fontSize: { xs: '1.13rem', md: '1.22rem' }, textTransform: 'uppercase', letterSpacing: 1.2 }}>Redes</Typography>
+                  <Box sx={{ display: 'flex', gap: 1.5 }}>
+                    <Box component="a" href="https://twitter.com/zypher" target="_blank" rel="noopener noreferrer" sx={{ 
+                      color: '#fff', 
+                      textDecoration: 'none', 
+                      opacity: 0.93, 
+                      transition: 'opacity 0.2s, transform 0.2s',
+                      '&:hover': { 
+                        opacity: 1, 
+                        transform: 'translateY(-2px)' 
+                      }
+                    }}>
+                      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      </svg>
+                    </Box>
+                    <Box component="a" href="https://linkedin.com/company/zypher" target="_blank" rel="noopener noreferrer" sx={{ 
+                      color: '#fff', 
+                      textDecoration: 'none', 
+                      opacity: 0.93, 
+                      transition: 'opacity 0.2s, transform 0.2s',
+                      '&:hover': { 
+                        opacity: 1, 
+                        transform: 'translateY(-2px)' 
+                      }
+                    }}>
+                      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                    </Box>
+                    <Box component="a" href="https://instagram.com/zypher" target="_blank" rel="noopener noreferrer" sx={{ 
+                      color: '#fff', 
+                      textDecoration: 'none', 
+                      opacity: 0.93, 
+                      transition: 'opacity 0.2s, transform 0.2s',
+                      '&:hover': { 
+                        opacity: 1, 
+                        transform: 'translateY(-2px)' 
+                      }
+                    }}>
+                      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.418-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.928.875 1.418 2.026 1.418 3.323s-.49 2.448-1.418 3.244c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.781c-.49 0-.928-.175-1.297-.49-.368-.315-.49-.753-.49-1.243 0-.49.122-.928.49-1.243.369-.315.807-.49 1.297-.49s.928.175 1.297.49c.368.315.49.753.49 1.243 0 .49-.122.928-.49 1.243-.369.315-.807.49-1.297.49z"/>
+                      </svg>
+                    </Box>
+                    <Box component="a" href="https://youtube.com/@zypher" target="_blank" rel="noopener noreferrer" sx={{ 
+                      color: '#fff', 
+                      textDecoration: 'none', 
+                      opacity: 0.93, 
+                      transition: 'opacity 0.2s, transform 0.2s',
+                      '&:hover': { 
+                        opacity: 1, 
+                        transform: 'translateY(-2px)' 
+                      }
+                    }}>
+                      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                      </svg>
+                    </Box>
                   </Box>
                 </Box>
               </Box>
