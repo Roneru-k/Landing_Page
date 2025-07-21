@@ -16,21 +16,24 @@ import Persona1 from '@/public/images/RetratosReseña/Persona1.jpeg'
 import Persona2 from '@/public/images/RetratosReseña/Persona2.jpg'
 import Persona3 from '@/public/images/RetratosReseña/Persona3.jpg'
 import { motion } from 'framer-motion';
-import AnimatedIconsBackground from '@/components/AnimatedIconsBackground/AnimatedIconsBackground';
+// import AnimatedIconsBackground from '@/components/AnimatedIconsBackground/AnimatedIconsBackground';
 import { AnimatePresence } from 'framer-motion';
+import {ChatBot} from '@/components/ChatBot'
 
-const MotionContainer = motion.div;
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3,
-      delayChildren: 0.2,
-    },
-  },
-};
+
+// const MotionContainer = motion.div;
+
+// const containerVariants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.3,
+//       delayChildren: 0.2,
+//     },
+//   },
+// };
 
 const faqs = [
   { question: "¿Qué te ofrecemos en Zypher?", answer: "Te ofrecemos bots de trading automáticos, gestión de portafolio, y ejecución de órdenes algorítmicas de forma sencilla y eficiente." },
@@ -46,7 +49,11 @@ export default function Home() {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+
   return (
+    <>
+ <ChatBot/>
+
     <main style={{ width: '100%', minHeight: '100vh', background: '#ffffff', position: 'relative', overflowX: 'visible' }}>
       {/* === INICIO === */}
       <section id="inicio" style={{ scrollMarginTop: '80px' }}>
@@ -632,26 +639,25 @@ export default function Home() {
 
 
       {/* === FOOTER === */}
-      <footer style={{ 
+     <footer style={{ 
         background: '#2563eb', 
         color: '#fff', 
         padding: '48px 0 24px 0', 
         marginTop: 0, 
+        // Estas son las propiedades clave para el ancho completo:
         width: '100vw', 
         marginLeft: 'calc(-50vw + 50%)',
         fontFamily: 'Poppins, Arial, sans-serif', 
         borderTop: '2.5px solid #e0e7ef',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        overflow: 'hidden' // Esto es importante para evitar barras de desplazamiento si el contenido interno excede el ancho
       }}>
-        <Box sx={{ 
-          width: '100%', 
-          maxWidth: '100vw',
-          overflow: 'hidden'
-        }}>
+        {/* Aquí es donde colocas el Container para que el contenido interno tenga un ancho máximo y padding */}
+        <Container maxWidth="md"> {/* Reemplazado el Box externo por Container */}
           <Box sx={{ 
-            maxWidth: '1600px', 
-            mx: 'auto', 
-            px: { xs: 3, sm: 6, md: 10 }, 
+            // Elimina maxWidth, mx: 'auto', y px de este Box si ya están en el Container superior.
+            // Si quieres un ancho máximo aún más pequeño dentro del Container, puedes mantener maxWidth aquí.
+            // px: { xs: 3, sm: 6, md: 10 },  // El Container ya manejará el padding, pero puedes ajustar aquí si necesitas más
             fontFamily: 'Poppins, Arial, sans-serif',
             width: '100%',
             boxSizing: 'border-box'
@@ -777,9 +783,11 @@ export default function Home() {
               © {new Date().getFullYear()} Zypher. Todos los derechos reservados.
             </Box>
           </Box>
-        </Box>
+        </Container>
       </footer>
     </main>
+    
+     </>
   );
 }
 
@@ -796,3 +804,4 @@ function FeatureItem({ children, checked, color }: { children: React.ReactNode; 
     </Box>
   );
 }
+
