@@ -5,7 +5,7 @@ import { createChat } from '@n8n/chat';
 export const ChatBot = () => {
 	useEffect(() => {
 createChat({
-	webhookUrl: 'http://localhost:5678/webhook/5118f032-7ec6-4395-9ab6-0f0e1f3edc47/chat',
+	webhookUrl: 'http://localhost:5678/webhook/ae9a0f4b-fb0c-4239-ac2a-884ae6204842/chat',
 	webhookConfig: {
 		method: 'POST',
 		headers: {}
