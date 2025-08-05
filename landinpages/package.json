@@ -15,11 +15,18 @@
     "@mui/material": "^7.1.1",
     "@mui/styled-engine-sc": "^7.1.1",
     "@n8n/chat": "^0.47.0",
+    "@n8n/design-system": "^1.89.0",
+    "@vueuse/core": "^13.6.0",
     "framer-motion": "^12.23.6",
+    "highlight.js": "^11.11.1",
+    "markdown-it-link-attributes": "^4.0.1",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "styled-components": "^6.1.19"
+    "styled-components": "^6.1.19",
+    "uuid": "^11.1.0",
+    "vue": "^3.5.18",
+    "vue-markdown-render": "^2.2.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
