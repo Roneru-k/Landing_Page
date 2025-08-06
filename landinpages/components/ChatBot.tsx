@@ -4,36 +4,36 @@ import { createChat } from '@n8n/chat';
 
 export const ChatBot = () => {
 	useEffect(() => {
-createChat({
-	webhookUrl: 'http://localhost:5678/webhook/ae9a0f4b-fb0c-4239-ac2a-884ae6204842/chat',
-	webhookConfig: {
-		method: 'POST',
-		headers: {}
-	},
-	target: '#n8n-chat',
-	mode: 'window',
-	chatInputKey: 'chatInput',
-	chatSessionKey: 'sessionId',
-	loadPreviousSession: true,
-	metadata: {},
-	showWelcomeScreen: false,
-	defaultLanguage: 'en',
-	initialMessages: [
-		'Hi there! 👋',
-		'My name is Nathan. How can I assist you today?'
-	],
-	i18n: {
-		en: {
-            title: 'Hi there! 👋',
-            subtitle: "Start a chat. We're here to help you 24/7.",
-            footer: '',
-            getStarted: 'New Conversation',
-            inputPlaceholder: 'Type your question..',
-            closeButtonTooltip: ''
-        },
-	},
-});
+		createChat({
+			webhookUrl: 'http://localhost:5678/webhook/f40137f1-94db-4528-ba15-b8ab0b1c3774/chat',
+			webhookConfig: {
+				method: 'POST',
+				headers: {}
+			},
+			target: '#n8n-chat',
+			mode: 'window',
+			chatInputKey: 'chatInput',
+			chatSessionKey: 'sessionId',
+			loadPreviousSession: true,
+			metadata: {},
+			showWelcomeScreen: false,
+			defaultLanguage: 'en',
+			initialMessages: [
+				'¡Hola! 👋',
+				'Soy **ZypherBot**, tu asistente virtual. ¿En qué puedo ayudarte con Zypher hoy?'
+			],
+			i18n: {
+				es: {
+					title: '¡Bienvenido a ZypherBot! 🤖',
+					subtitle: 'Chatea con nosotros. Estamos aquí para ayudarte 24/7.',
+					footer: '',
+					getStarted: 'Nueva conversación',
+					inputPlaceholder: 'Escribe tu pregunta aquí...',
+					closeButtonTooltip: 'Cerrar chat'
+				}
+			},
+		});
 	}, []);
 
-	return (<div></div>);
+	return <div id="n8n-chat"></div>;
 };
