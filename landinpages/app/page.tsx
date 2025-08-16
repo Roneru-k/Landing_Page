@@ -301,7 +301,7 @@ export default function Home() {
                   {/* Lightning SVG */}
                   <svg width="32" height="32" fill="none" viewBox="0 0 24 24"><path fill="#4285F4" d="M13 2v7h5l-6 13v-7H7l6-13Z"/></svg>
                 </Box>
-                <Typography variant="h6" fontWeight={700} sx={{ mb: 1, color: '#1a1a1a' }}>Ejecución Ulrarrápida</Typography>
+                <Typography variant="h6" fontWeight={700} sx={{ mb: 1, color: '#1a1a1a' }}>Ejecución Ultrarrápida</Typography>
                 <Typography sx={{ color: '#3a3a3a', fontSize: '1rem', fontWeight: 400 }}>
                   Latencia ultrabaja para ejecutar operaciones en milisegundos, aprovechando cada oportunidad del mercado.
                 </Typography>
